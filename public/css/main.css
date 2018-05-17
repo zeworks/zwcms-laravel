@@ -11126,11 +11126,11 @@ small, .small {
   float: none;
   position: fixed;
   top: -100%;
-  right: 10px;
+  right: auto;
   bottom: auto;
-  left: auto;
+  left: 0;
   height: auto;
-  width: calc(100% - 170px);
+  width: 100%;
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -11541,6 +11541,7 @@ aside {
   -moz-transition: width 100ms ease;
   transition: width 100ms ease;
   overflow: hidden;
+  z-index: 11;
 }
 /* line 127, modules/_nav.scss */
 aside li.active .aside__link {

@@ -19,3 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/banners', 'BannersController@index')->name('banners');
+Route::get('/settings', 'SettingsController@index')->name('settings');
+Route::get('/settings/general', 'SettingsController@generalSettings')->name('general');

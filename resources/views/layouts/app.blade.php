@@ -42,7 +42,7 @@
             </a>
             <!-- end website name -->
             @auth
-            <a href="#" class="menu">
+            <a href class="menu" title>
                 <i class="fa fa-bars"></i>
             </a>
             <div class="user-top-bar">
@@ -83,6 +83,8 @@
                     </a>
                 </li>
             </ul>
+            <!-- settings -->
+            <a title="Settings"  href="{{ url('/settings') }}" class="aside__link aside__link--absolute-bottom"><i class="fas fa-cog"></i>Settings</a>
         </aside>
         @endif
         <main>
