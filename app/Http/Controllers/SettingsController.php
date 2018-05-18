@@ -24,11 +24,11 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('settings');
+        return view('admin.setting.index');
     }
 
     public function generalSettings()
     {
-        return view('general');
+        return view('admin.setting.general');
     }
 }

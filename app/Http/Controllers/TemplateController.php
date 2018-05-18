@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class TemplateController extends Controller
 {
-    /**
+    //
+     /**
      * Create a new controller instance.
      *
      * @return void
@@ -16,13 +17,12 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('admin.home.index');
+        return view('admin.templates.index');
+    }
+
+    public function newTemplate(){
+        return view('admin.templates.create');
     }
 }

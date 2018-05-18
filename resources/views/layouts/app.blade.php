@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
     <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
@@ -37,12 +38,12 @@
             <!-- zwcms logo -->
             <img src="{{ asset('img/zwlogo.png') }}" width="30" height="30" class="rounded" alt="zwlogo.png">
             <!-- end zwcms logo -->
-            <a href="{{ url('/home') }}">
-                <h1>/{{ config('app.name') }}</h1>
+            <a href="{{ url('/admin/home') }}">
+                <h1>{{ config('app.name') }}</h1>
             </a>
             <!-- end website name -->
             @auth
-            <a href class="menu" title>
+            <a href class="menu active" title>
                 <i class="fa fa-bars"></i>
             </a>
             <div class="user-top-bar">
@@ -72,19 +73,28 @@
             <!-- aside items -->
             <ul>
                 <!-- dashboard -->
-                <li class="">
-                    <a href="{{ url('/home') }}" class="aside__link" title="{{ __('Dashboard') }}">
+                <li class="{{ Request::is('admin/home*') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class="aside__link" title="{{ __('Dashboard') }}">
                         <i class="fa fa-tachometer-alt"></i>
                         {{ __('Dashboard') }}
                     </a>
-                    <a href="{{ url('/banners') }}" class="aside__link" title="{{ __('Banners') }}">
+                </li>
+                <li class="{{ Request::is('admin/banners*') ? 'active' : '' }}">
+                    <a href="{{ route('banners') }}" class="aside__link" title="{{ __('Banners') }}">
                         <i class="fas fa-paint-brush"></i>
                         {{ __('Banners') }}
                     </a>
                 </li>
+                <li class="{{ Request::is('admin/templates*') ? 'active' : '' }}">
+                    <a href="{{ route('templates') }}" class="aside__link" title="{{ __('Páginas') }}">
+                        <i class="far fa-file-alt"></i>
+                        {{ __('Páginas') }}
+                    </a>
+                </li>
             </ul>
             <!-- settings -->
-            <a title="Settings"  href="{{ url('/settings') }}" class="aside__link aside__link--absolute-bottom"><i class="fas fa-cog"></i>Settings</a>
+            <a title="Settings" href="{{ route('settings') }}" class="aside__link aside__link--absolute-bottom {{ Request::is('admin/settings*') ? 'active' : '' }}">
+                <i class="fas fa-cog"></i>Settings</a>
         </aside>
         @endif
         <main>
@@ -93,8 +103,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
     <script src="{{ asset('js/matchHeight.js') }}"></script>
     <script src="{{ asset('js/functions.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>

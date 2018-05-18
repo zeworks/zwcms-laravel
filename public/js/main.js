@@ -21,7 +21,10 @@ function resizableElements(viewport) {
     // toggle items
     toggleItems();
 
-    $('.text-editor').ckeditor();
+    $('.text-editor').summernote({
+      tabsize: 2,
+      height: 200
+    });
 
 
     $("#upload_photo").change(function () {
@@ -163,7 +166,7 @@ function readURL(input) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      $('.image-preview').attr('src', e.target.result);
+      $('.image-previewer').attr('src', e.target.result);
     }
 
     reader.readAsDataURL(input.files[0]);
