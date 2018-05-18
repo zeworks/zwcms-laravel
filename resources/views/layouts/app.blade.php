@@ -91,10 +91,17 @@
                         {{ __('Páginas') }}
                     </a>
                 </li>
+                <li class="{{ Request::is('admin/products*') ? 'active' : '' }}">
+                    <a href="{{ route('products') }}" class="aside__link" title="{{ __('Produtos') }}">
+                        <i class="fas fa-dollar-sign"></i>
+                        {{ __('Produtos') }}
+                    </a>
+                </li>
             </ul>
             <!-- settings -->
-            <a title="Settings" href="{{ route('settings') }}" class="aside__link aside__link--absolute-bottom {{ Request::is('admin/settings*') ? 'active' : '' }}">
-                <i class="fas fa-cog"></i>Settings</a>
+            <a title="Definições" href="{{ route('settings') }}" class="aside__link aside__link--absolute-bottom {{ Request::is('admin/settings*') ? 'active' : '' }}">
+                <i class="fas fa-cog"></i>Definições
+            </a>
         </aside>
         @endif
         <main>

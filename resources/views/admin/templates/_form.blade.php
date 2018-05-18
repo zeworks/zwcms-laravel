@@ -2,7 +2,7 @@
     <div class="col-lg-9 col-sm-6 col-xs-12">
         <div class="table-items">
             <div class="form-field clearfix">
-                <label for="title">Nome do template</label>
+                <label for="title">Nome da Página</label>
                 <input type="text" name="title" id="title" class="form-control" required>
             </div>
         </div>
@@ -20,6 +20,19 @@
                     <span class="toggle toggle--round"></span>
                 </div>
                 <!-- /template status -->
+            </div>
+            <div class="form-field">
+                <span>Imagem de Destaque
+                    <strong>1920x520</strong>
+                </span>
+                <br>
+                <br>
+                <!-- previewed image -->
+                <img class="image-previewer">
+                <div class="buttons-top fleft">
+                    <input type="file" name="upload_banner[]" id="upload_photo" class="hidden">
+                    <a href="#" class="btn btn-default upload" data-target="upload_photo">Enviar Ficheiro</a>
+                </div>
             </div>
         </div>
     </div>

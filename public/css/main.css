@@ -6559,7 +6559,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 /* line 71, bootstrap/bootstrap/_buttons.scss */
 .btn-primary {
   color: #fff;
-  background-color: #0298ae;
+  background-color: #1e5598;
   border-color: #028295;
 }
 /* line 11, bootstrap/bootstrap/mixins/_buttons.scss */
@@ -6571,7 +6571,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 /* line 17, bootstrap/bootstrap/mixins/_buttons.scss */
 .btn-primary:hover {
   color: #fff;
-  background-color: #016c7c;
+  background-color: #2f6ebb;
   border-color: #014d58;
 }
 /* line 22, bootstrap/bootstrap/mixins/_buttons.scss */
@@ -10639,6 +10639,10 @@ body.content-collapse aside {
 body.content-collapse aside .aside__link {
   padding-left: 7px;
 }
+
+body.content-collapse aside .aside__link i{
+  text-align: center;
+}
 /* line 25, base/_base.scss */
 body.content-collapse .menu i {
   -webkit-transform: rotate(-90deg);
@@ -11360,7 +11364,7 @@ nav {
   left: 0;
   height: 40px;
   width: 100%;
-  background-color: #1f1e1e;
+  background-color: #1e5598;
   padding: 5px;
   display: flex;
   align-items: center;
@@ -11534,7 +11538,7 @@ nav .user-top-bar__links li a {
 aside {
   position: fixed;
   left: 0;
-  background-color: #222222;
+  background-color: #192133;
   height: 100%;
   width: 170px;
   -webkit-transition: width 100ms ease;
@@ -11544,15 +11548,16 @@ aside {
   z-index: 11;
 }
 /* line 127, modules/_nav.scss */
-aside li.active .aside__link {
+aside li.active .aside__link,
+aside .aside__link.active {
   color: #FFFFFF;
-  background-color: #222222;
+  background-color: #0a0d14;
 }
 /* line 132, modules/_nav.scss */
 aside .aside__link {
   display: flex;
   align-items: flex-start;
-  background-color: #1f1e1e;
+  background-color: transparent;
   width: 170px;
   padding: 10px;
   margin: 1px 0;
@@ -11562,7 +11567,7 @@ aside .aside__link {
 }
 /* line 140, modules/_nav.scss */
 aside .aside__link:hover {
-  background-color: #222222;
+  background-color: #0a0d14;
 }
 /* line 143, modules/_nav.scss */
 aside .aside__link.active {
