@@ -30,4 +30,9 @@ class OrdersController extends Controller
     {
         return view('admin.orders.create');
     }
+
+    public function editOrder()
+    {
+        return view('admin.orders.edit');
+    }
 }

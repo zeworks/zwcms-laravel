@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    <title>Admin / {{ config('app.name') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -82,7 +82,7 @@
                 <!-- banners -->
                 <li class="{{ Request::is('admin/banners*') ? 'active' : '' }}">
                     <a href="{{ route('banners') }}" class="aside__link" title="{{ __('Banners') }}">
-                        <i class="fas fa-paint-brush"></i>
+                        <i class="fas fa-images"></i>
                         {{ __('Banners') }}
                     </a>
                 </li>
@@ -91,6 +91,13 @@
                     <a href="{{ route('templates') }}" class="aside__link" title="{{ __('Páginas') }}">
                         <i class="far fa-file-alt"></i>
                         {{ __('Páginas') }}
+                    </a>
+                </li>
+                <!-- blog -->
+                <li class="{{ Request::is('admin/blog*') ? 'active' : '' }}">
+                    <a href="{{ route('blog') }}" class="aside__link" title="{{ __('Blog') }}">
+                        <i class="fab fa-blogger-b"></i>
+                        {{ __('Blog') }}
                     </a>
                 </li>
                 <!-- costumers -->
@@ -110,7 +117,7 @@
                  <!-- discounts -->
                  <li class="{{ Request::is('admin/discounts*') ? 'active' : '' }}">
                     <a href="{{ route('discounts') }}" class="aside__link" title="{{ __('Discontos') }}">
-                        <i class="fas fa-percentage"></i>
+                        <i class="fas fa-percent"></i>
                         {{ __('Discontos') }}
                     </a>
                 </li>
@@ -121,11 +128,25 @@
                         {{ __('Encomendas') }}
                     </a>
                 </li>
+                <!-- notifications -->
+                <li class="{{ Request::is('admin/notifications*') ? 'active' : '' }}">
+                    <a href="{{ route('notifications') }}" class="aside__link" title="{{ __('Notificações') }}">
+                        <i class="fas fa-envelope"></i>
+                        {{ __('Notificações') }}
+                    </a>
+                </li>
+                <!-- shipping -->
+                <li class="{{ Request::is('admin/shipping*') ? 'active' : '' }}">
+                    <a href="{{ route('shipping') }}" class="aside__link" title="{{ __('Envios') }}">
+                        <i class="fas fa-shipping-fast"></i>
+                        {{ __('Envios') }}
+                    </a>
+                </li>
                 
             </ul>
             <!-- settings -->
             <a title="Definições" href="{{ route('settings') }}" class="aside__link aside__link--absolute-bottom {{ Request::is('admin/settings*') ? 'active' : '' }}">
-                <i class="fas fa-cog"></i>Definições
+                <i class="fas fa-cog"></i>{{ __('Definições') }}
             </a>
         </aside>
         @endif

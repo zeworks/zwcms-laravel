@@ -2,39 +2,33 @@
     <div class="col-lg-9 col-sm-6 col-xs-12">
         <div class="table-items">
             <div class="form-field clearfix">
-                <label for="title">Nome da Página</label>
+                <label for="title">Título</label>
                 <input type="text" name="title" id="title" class="form-control" required>
             </div>
-
+            <br>
+            <div class="form-field">
+                <span>Descrição</span>
+                <br/>
+                <br/>
+                <textarea name="editor_content" class="text-editor" required></textarea>
+            </div>
         </div>
         <hr>
-        <h2 class="page-title">Blocos da Página</h2>
         <div class="table-items">
-            <div class="bloc">
-                <div class="bloc-item clearfix">
-                    <div class="col-xs-12">
-                        <a href="" class="link fright btn-delBloc"><i class="fa fa-trash"></i></a>
-                        <p class="strong">Bloco Nº 1</p>
-                        <div class="form-field">
-                            <label for="title_bloc_page_1">Título do Bloco</label>
-                            <input type="text" name="title_bloc_page" id="title_bloc_page_1" class="form-control">
-                        </div>
-                        <br>
-                        <div class="form-field">
-                            <label for="resum_bloc_item_1">Resumo do Bloco</label>
-                            <input type="text" name="resum_bloc_item" id="resum_bloc_item_1" class="form-control">
-                        </div>
-                        <br>
-                        <div class="form-field">
-                            <label for="desc_bloc_item_1">Descrição do Bloco</label>
-                            <textarea name="desc_bloc_item" id="desc_bloc_item_1" class="text-editor"></textarea>
-                        </div>
-                    </div>
+            <p>
+                <strong>Imagens Adicionais</strong>
+            </p>
+            <br>
+            <div class="form-field">
+                <div class="row">
+                    <div class="aditional-images"></div>
+                </div>
+                <div class="buttons-top fleft">
+                    <input type="file" name="upload_images[]" id="upload_images" class="hidden" multiple>
+                    <a href="#" class="link upload" data-target="upload_images">Enviar Ficheiros</a>
                 </div>
             </div>
-            <button type="button" class="btn btn-default btn-addBloc"><i class="far fa-plus-square"></i> Adicionar Bloco</button>
         </div>
-        <hr>
     </div>
     <div class="col-lg-3 col-sm-6 col-xs-12">
         <div class="table-items">
@@ -42,14 +36,16 @@
                 <span>Estado</span>
                 <br/>
                 <br/>
-                <!-- template status -->
+                <!-- product status -->
                 <input type="hidden" name="status_hidden" class="status_hidden">
                 <div class="switch">
                     <input type="checkbox" class="btsp-check" name="status_item">
                     <span class="toggle toggle--round"></span>
                 </div>
-                <!-- /template status -->
+                <!-- /product status -->
             </div>
+            
+            <br>
             <div class="form-field">
                 <span>Imagem de Destaque
                     <strong>1920x520</strong>

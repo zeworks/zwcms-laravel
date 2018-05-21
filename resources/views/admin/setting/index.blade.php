@@ -19,21 +19,11 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-xs-12 settings_page__item">
-                            <a href="zw-admin/account/" class="settings_page__link">
+                            <a href="{{ route('account') }}" class="settings_page__link">
                                 <i class="fas fa-user"></i>
                                 <div class="settings_page__item-text">
                                     <span>{{ __('Conta') }}</span>
                                     <p>{{ __('Configure sua conta e permissões') }}</p>
-                                </div>
-                            </a>
-                        </div>
-                       
-                        <div class="col-lg-3 col-sm-6 col-xs-12 settings_page__item">
-                            <a href="processador/modal.php?page=notifications" class="settings_page__link">
-                                <i class="fas fa-envelope"></i>
-                                <div class="settings_page__item-text">
-                                    <span>{{ __('Notificações') }}</span>
-                                    <p>{{ __('Configure as suas notificações') }}</p>
                                 </div>
                             </a>
                         </div>
@@ -47,16 +37,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-xs-12 settings_page__item">
-                            <a href="zw-admin/files/" class="settings_page__link">
-                                <i class="fas fa-file"></i>
-                                <div class="settings_page__item-text">
-                                    <span>{{ __('Ficheiros') }}</span>
-                                    <p>{{ __('Veja os seus ficheiros enviados') }}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-xs-12 settings_page__item">
-                            <a href="../processador/modal.php?page=shipping" class="settings_page__link">
+                            <a href="{{ route('shipping_settings') }}" class="settings_page__link">
                                 <i class="fas fa-shipping-fast"></i>
                                 <div class="settings_page__item-text">
                                     <span>{{ __('Envios') }}</span>
@@ -65,7 +46,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-xs-12 settings_page__item">
-                            <a href="../processador/modal.php?page=taxes" class="settings_page__link">
+                            <a href="#" class="settings_page__link">
                                 <i class="fas fa-hand-holding-usd"></i>
                                 <div class="settings_page__item-text">
                                     <span>{{ __('Taxas') }}</span>

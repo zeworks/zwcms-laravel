@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SettingsController extends Controller
+class ShippingController extends Controller
 {
-    //
     /**
      * Create a new controller instance.
      *
@@ -24,19 +23,14 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('admin.setting.index');
+        return view('admin.shipping.index');
     }
 
-    public function generalSettings()
-    {
-        return view('admin.setting.general');
+    public function newShipping(){
+        return view('admin.shipping.create');
     }
 
-    public function accountSettings(){
-        return view('admin.setting.account');
-    }
-
-    public function shippingSettings(){
-        return view('admin.setting.shipping');
+    public function editShipping(){
+        return view('admin.shipping.edit');
     }
 }

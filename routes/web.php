@@ -23,14 +23,19 @@ Route::prefix('admin')->group(function () {
     Route::get('settings', 'SettingsController@index')->name('settings');
     Route::get('templates', 'TemplateController@index')->name('templates');
     Route::get('products', 'ProductsController@index')->name('products');
+    Route::get('blog', 'BlogController@index')->name('blog');
     Route::get('discounts', 'DiscountsController@index')->name('discounts');
     Route::get('costumers', 'CostumersController@index')->name('costumers');
+    Route::get('notifications', 'NotificationsController@index')->name('notifications');
+    Route::get('shipping', 'ShippingController@index')->name('shipping');
     Route::get('orders', 'OrdersController@index')->name('orders');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     
     // rota com prefixo settings
     Route::prefix('settings')->group(function () {
         Route::get('general', 'SettingsController@generalSettings')->name('general');
+        Route::get('account', 'SettingsController@accountSettings')->name('account');
+        Route::get('shipping', 'SettingsController@shippingSettings')->name('shipping_settings');
     });
 
     // rota com prefixo banners
@@ -51,6 +56,12 @@ Route::prefix('admin')->group(function () {
         Route::get('edit', 'ProductsController@editProduct')->name('product_edit');
     });
 
+    // rota com prefixo blog
+    Route::prefix('blog')->group(function () {
+        Route::get('new', 'BlogController@newBlog')->name('blog_new');
+        Route::get('edit', 'BlogController@editBlog')->name('blog_edit');
+    });
+
     // rota com prefixo costumers
     Route::prefix('costumers')->group(function () {
         Route::get('new', 'CostumersController@newCostumer')->name('costumer_new');
@@ -60,6 +71,7 @@ Route::prefix('admin')->group(function () {
     // rota com prefixo orders
     Route::prefix('orders')->group(function () {
         Route::get('new', 'OrdersController@newOrder')->name('order_new');
+        Route::get('edit', 'OrdersController@editOrder')->name('order_edit');
     });
 
     // rota com prefixo discounts
@@ -67,6 +79,20 @@ Route::prefix('admin')->group(function () {
         Route::get('new', 'DiscountsController@newDiscount')->name('discount_new');
         Route::get('edit', 'DiscountsController@editDiscount')->name('discount_edit');
     });
+
+    // rota com prefixo notifications
+    Route::prefix('notifications')->group(function () {
+        Route::get('new', 'NotificationsController@newNotification')->name('notification_new');
+        Route::get('edit', 'NotificationsController@editNotification')->name('notification_edit');
+    });
+
+    // rota com prefixo shipping
+    Route::prefix('shipping')->group(function () {
+        Route::get('new', 'ShippingController@newShipping')->name('shipping_new');
+        Route::get('edit', 'ShippingController@editShipping')->name('shipping_edit');
+    });
+
+
 });
 
 

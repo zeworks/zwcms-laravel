@@ -4,13 +4,13 @@
         <div class="row">
             <div class="col-xs-12">
                 <!-- page title -->
-                <h2 class="page-title">{{ __('Encomendas') }}</h2>
+                <h2 class="page-title">{{ __('Blog') }}</h2>
                 <!-- page title ends -->
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
-                    <a href="{{ route('order_new' )}}" title="add page" class="btn btn-primary">
+                    <a href="{{ route('blog_new' )}}" title="add post" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
-                        {{ __('Adicionar Encomenda') }}
+                        {{ __('Adicionar Post') }}
                     </a>
                 </div>
                 <!-- button to add new banner ends -->
@@ -26,39 +26,41 @@
                     <br>
                     <!-- search ends -->
                     <!-- templates list -->
-                    <table class="table-items__table">
+                    <table class="table-items__table with--image">
                         <tr>
-                            <th>Ref. Enc</th>
+                            <th>
+                                <!-- image if exist -->
+                            </th>
+                            <th>Título</th>
                             <th>Data de Registo</th>
-                            <th>Cliente</th>
-                            <th>Estado de Entrega</th>
-                            <th>Estado de Pagamento</th>
-                            <th>Estado de Encomenda</th>
-                            <th>Total</th>
+                            <th>Estado</th>
+                            <th></th>
                         </tr>
                         <tr class="item-table">
                             <td>
-                                <a href="{{ route('order_edit') }}" class="go-back">#122</a>
+                                <a href="{{ route('blog_edit') }}" class="go-back">
+                                    <img src="{{ asset('img/zwlogo.png') }}" class="rounded" width="40" height="40" alt="zwlogo.png">
+                                </a>
                             </td>
-                            <td>20:53 19/01/2017</td>
-                            <td>José Nogueira</td>
                             <td>
-                                <div class="status status--warn">
-                                    Pendente
-                                </div>
+                                <a href="{{ route('blog_edit') }}" class="go-back">Título do Post</a>
                             </td>
+                            <td>12/05/2018</td>
                             <td>
                                 <div class="status status--sucss">
-                                    Pago
+                                    Activo
                                 </div>
-                            </td>
-                            <td>
                                 <div class="status status--warn">
-                                    Pendente
+                                    Inactivo
                                 </div>
                             </td>
-                            <td>
-                                55.00€
+                            <td class="last-item-table">
+                                <form action="" method="post">
+                                    <input type="hidden" class="form-control" name="id_product" value="">
+                                    <button type="submit" name="remove_publication_btn" class="link" title="Remover">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </table>

@@ -4,15 +4,15 @@
         <div class="row">
             <div class="col-xs-12">
                 <!-- button go back -->
-                <a href="{{ route('discounts') }}" class="go-back">
-                    <i class="fas fa-angle-left"></i> {{ __('Descontos') }}</a>
+                <a href="{{ route('blog') }}" class="go-back">
+                    <i class="fas fa-angle-left"></i> {{ __('Blog') }}</a>
                 <!-- button go back ends -->
                 <!-- page title -->
-                <h2 class="page-title">{{ __('Editar Desconto')}}</h2>
+                <h2 class="page-title">{{ __('Adicionar Post')}}</h2>
                 <!-- page title ends -->
-                <!-- form to add template -->
-                @include('admin.discounts._form')
-                <!-- form to add template ends -->
+                <!-- form to add banner -->
+                @include('admin.blog._form')
+                <!-- form to add banner ends -->
             </div>
         </div>
     </div>

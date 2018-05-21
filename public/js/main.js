@@ -1,3 +1,6 @@
+var $blocoItem = $(".bloc").html();
+
+
 //Chamar todas as funções relacionadas com tamanhos para tomarem alterações no resize
 function resizableElements(viewport) {
 
@@ -41,6 +44,25 @@ function resizableElements(viewport) {
       }, 2000);
     }
 
+    var bloc_item_count = 1;
+    $(".btn-addBloc").click(function () {
+        bloc_item_count++;
+        // replace os IDs com um count e o numero do bloco no HTML
+        var $blocoItemNew = $blocoItem.replace(/\_1/g, '_' + bloc_item_count).replace(/ 1/g, '' + bloc_item_count);
+        // adicionar o HTML
+        $(this).parent().children(".bloc").append($blocoItemNew);
+        // inicializar o texteditor
+        $('.text-editor').summernote({
+          tabsize: 2,
+          height: 200
+        });
+    });
+
+    $(".btn-delBloc").click(function(){
+      $(this).parent().parent().remove();
+      return false;
+    })
+
   });
 })(jQuery);
 
@@ -74,7 +96,11 @@ function toggleItems() {
   });
 
   // input keydown/click to show the topbar to save the info;
-  $("input,.text-editor").keydown(function () {
+  $("input").keydown(function () {
+    $(".buttons-top-absolute").addClass("active");
+  });
+
+  $(".text-editor").keydown(function () {
     $(".buttons-top-absolute").addClass("active");
   });
 
@@ -213,3 +239,4 @@ function generate_discount_code() {
 
   return "#" + text;
 }
+
