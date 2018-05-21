@@ -23,6 +23,8 @@ Route::prefix('admin')->group(function () {
     Route::get('settings', 'SettingsController@index')->name('settings');
     Route::get('templates', 'TemplateController@index')->name('templates');
     Route::get('products', 'ProductsController@index')->name('products');
+    Route::get('costumers', 'CostumersController@index')->name('costumers');
+    Route::get('orders', 'OrdersController@index')->name('orders');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     
     // rota com prefixo settings
@@ -38,11 +40,22 @@ Route::prefix('admin')->group(function () {
     // rota com prefixo templates
     Route::prefix('templates')->group(function () {
         Route::get('new', 'TemplateController@newTemplate')->name('template_new');
+        Route::get('edit', 'TemplateController@editTemplate')->name('template_edit');
     });
 
     // rota com prefixo products
     Route::prefix('products')->group(function () {
         Route::get('new', 'ProductsController@newProduct')->name('product_new');
+    });
+
+    // rota com prefixo costumers
+    Route::prefix('costumers')->group(function () {
+        Route::get('new', 'CostumersController@newCostumer')->name('costumer_new');
+    });
+
+    // rota com prefixo costumers
+    Route::prefix('orders')->group(function () {
+        Route::get('new', 'OrdersController@newOrder')->name('order_new');
     });
 });
 

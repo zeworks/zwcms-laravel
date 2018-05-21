@@ -4,13 +4,13 @@
         <div class="row">
             <div class="col-xs-12">
                 <!-- page title -->
-                <h2 class="page-title">{{ __('Páginas') }}</h2>
+                <h2 class="page-title">{{ __('Clientes') }}</h2>
                 <!-- page title ends -->
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
-                    <a href="{{ route('template_new' )}}" title="add page" class="btn btn-primary">
+                    <a href="{{ route('costumer_new' )}}" title="add page" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
-                        {{ __('Adicionar Página') }}
+                        {{ __('Adicionar Cliente') }}
                     </a>
                 </div>
                 <!-- button to add new banner ends -->
@@ -26,34 +26,19 @@
                     <br>
                     <!-- search ends -->
                     <!-- templates list -->
-                    <table class="table-items__table with--image">
+                    <table class="table-items__table">
                         <tr>
-                            <th>
-                                <!-- image if exist -->
-                            </th>
-                            <th>Página</th>
-                            <th>Data de Registo</th>
-                            <th>Estado</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                             <th></th>
                         </tr>
                         <tr class="item-table">
                             <td>
-                                <a href="{{ route('template_edit') }}" class="go-back">
-                                    <img src="{{ asset('img/zwlogo.png') }}" class="rounded" width="40" height="40" alt="zwlogo.png">
-                                </a>
+                                <a href="#" class="go-back">Nome do Cliente</a>
                             </td>
-                            <td>
-                                <a href="{{ route('template_edit') }}" class="go-back">Nome do Template</a>
-                            </td>
-                            <td>12/05/2018</td>
-                            <td>
-                                <div class="status status--sucss">
-                                    Activo
-                                </div>
-                                <div class="status status--warn">
-                                    Inactivo
-                                </div>
-                            </td>
+                            <td>0 Encomendas</td>
+                            <td>0,00€ Gasto</td>
                             <td class="last-item-table">
                                 <form action="" method="post">
                                     <input type="hidden" class="form-control" name="id_product" value="">

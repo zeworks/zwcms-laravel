@@ -79,24 +79,42 @@
                         {{ __('Dashboard') }}
                     </a>
                 </li>
+                <!-- banners -->
                 <li class="{{ Request::is('admin/banners*') ? 'active' : '' }}">
                     <a href="{{ route('banners') }}" class="aside__link" title="{{ __('Banners') }}">
                         <i class="fas fa-paint-brush"></i>
                         {{ __('Banners') }}
                     </a>
                 </li>
+                <!-- templates -->
                 <li class="{{ Request::is('admin/templates*') ? 'active' : '' }}">
                     <a href="{{ route('templates') }}" class="aside__link" title="{{ __('Páginas') }}">
                         <i class="far fa-file-alt"></i>
                         {{ __('Páginas') }}
                     </a>
                 </li>
+                <!-- costumers -->
+                <li class="{{ Request::is('admin/costumers*') ? 'active' : '' }}">
+                    <a href="{{ route('costumers') }}" class="aside__link" title="{{ __('Clientes') }}">
+                        <i class="fas fa-users"></i>
+                        {{ __('Clientes') }}
+                    </a>
+                </li>
+                <!-- products -->
                 <li class="{{ Request::is('admin/products*') ? 'active' : '' }}">
                     <a href="{{ route('products') }}" class="aside__link" title="{{ __('Produtos') }}">
                         <i class="fas fa-dollar-sign"></i>
                         {{ __('Produtos') }}
                     </a>
                 </li>
+                <!-- orders -->
+                <li class="{{ Request::is('admin/orders*') ? 'active' : '' }}">
+                    <a href="{{ route('orders') }}" class="aside__link" title="{{ __('Encomendas') }}">
+                        <i class="fas fa-users"></i>
+                        {{ __('Encomendas') }}
+                    </a>
+                </li>
+                
             </ul>
             <!-- settings -->
             <a title="Definições" href="{{ route('settings') }}" class="aside__link aside__link--absolute-bottom {{ Request::is('admin/settings*') ? 'active' : '' }}">
