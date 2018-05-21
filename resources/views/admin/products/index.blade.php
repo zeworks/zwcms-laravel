@@ -38,12 +38,12 @@
                         </tr>
                         <tr class="item-table">
                             <td>
-                                <a href="#" class="go-back">
+                                <a href="{{ route('product_edit') }}" class="go-back">
                                     <img src="{{ asset('img/zwlogo.png') }}" class="rounded" width="40" height="40" alt="zwlogo.png">
                                 </a>
                             </td>
                             <td>
-                                <a href="#" class="go-back">Nome do Template</a>
+                                <a href="{{ route('product_edit') }}" class="go-back">Nome do Template</a>
                             </td>
                             <td>12/05/2018</td>
                             <td>

@@ -5,6 +5,7 @@
                 <label for="title">Título</label>
                 <input type="text" name="title" id="title" class="form-control" required>
             </div>
+            <br>
             <div class="form-field">
                 <span>Descrição</span>
                 <br/>

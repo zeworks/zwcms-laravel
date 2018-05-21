@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CostumersController extends Controller
+class DiscountsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,14 +23,14 @@ class CostumersController extends Controller
      */
     public function index()
     {
-        return view('admin.costumers.index');
+        return view('admin.discounts.index');
     }
 
-    public function newCostumer(){
-        return view('admin.costumers.create');
+    public function newDiscount(){
+        return view('admin.discounts.create');
     }
 
-    public function editCostumer(){
-        return view('admin.costumers.edit');
+    public function editDiscount(){
+        return view('admin.discounts.edit');
     }
 }

@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-xs-12">
                 <!-- button go back -->
-                <a href="{{ route('products') }}" class="go-back">
-                    <i class="fas fa-angle-left"></i> {{ __('Produtos') }}</a>
+                <a href="{{ route('costumers') }}" class="go-back">
+                    <i class="fas fa-angle-left"></i> {{ __('Clientes') }}</a>
                 <!-- button go back ends -->
                 <!-- page title -->
-                <h2 class="page-title">{{ __('Editar Produto')}}</h2>
+                <h2 class="page-title">{{ __('Editar Cliente')}}</h2>
                 <!-- page title ends -->
                 <!-- form to add banner -->
-                @include('admin.products._form')
+                @include('admin.costumers._form')
                 <!-- form to add banner ends -->
             </div>
         </div>

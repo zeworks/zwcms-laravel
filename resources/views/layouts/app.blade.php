@@ -107,6 +107,13 @@
                         {{ __('Produtos') }}
                     </a>
                 </li>
+                 <!-- discounts -->
+                 <li class="{{ Request::is('admin/discounts*') ? 'active' : '' }}">
+                    <a href="{{ route('discounts') }}" class="aside__link" title="{{ __('Discontos') }}">
+                        <i class="fas fa-percentage"></i>
+                        {{ __('Discontos') }}
+                    </a>
+                </li>
                 <!-- orders -->
                 <li class="{{ Request::is('admin/orders*') ? 'active' : '' }}">
                     <a href="{{ route('orders') }}" class="aside__link" title="{{ __('Encomendas') }}">

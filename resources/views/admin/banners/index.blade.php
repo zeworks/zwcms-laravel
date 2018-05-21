@@ -33,11 +33,9 @@
                                                 <i class="far fa-trash-alt"></i>
                                             </button>
                                         </form>
-                                        <form action="" method="post">
-                                            <button type="submit" name="edit_banner" title="Edit">
-                                                <i class="far fa-edit"></i>
-                                            </button>
-                                        </form>
+                                        <a href="{{ route('banner_edit') }}" title="Edit">
+                                            <i class="far fa-edit"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

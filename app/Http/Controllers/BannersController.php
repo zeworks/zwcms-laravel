@@ -24,4 +24,8 @@ class BannersController extends Controller
     public function newBanner(){
         return view('admin.banners.create');
     }
+
+    public function editBanner(){
+        return view('admin.banners.edit');
+    }
 }
