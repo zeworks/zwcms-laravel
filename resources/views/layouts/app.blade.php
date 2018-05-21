@@ -110,7 +110,7 @@
                 <!-- orders -->
                 <li class="{{ Request::is('admin/orders*') ? 'active' : '' }}">
                     <a href="{{ route('orders') }}" class="aside__link" title="{{ __('Encomendas') }}">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-cubes"></i>
                         {{ __('Encomendas') }}
                     </a>
                 </li>
