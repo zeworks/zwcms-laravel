@@ -8,8 +8,9 @@
                 <h2 class="page-title">{{ __('Geral') }}</h2>
             </div>
             <div class="col-xs-12 col-xs-offset-0 col-lg-10 col-lg-offset-1">
-                <form action="{{ action('SettingsController@updateWebsite') }}" method="post" class="row form edit_general_settings_page" name="edit_general_settings_form" enctype="multipart/form-data">
-                    <input type="hidden" name="type" value="edit_">
+                <form action="{{ route('settings_general_edit') }}" method="post" class="row form edit_general_settings_page" name="edit_general_settings_form" enctype="multipart/form-data">
+                    @csrf
+                     @foreach ($websitesettings as $websitesetting) 
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="table-items">
                             <div class="row divided">
@@ -20,17 +21,17 @@
                                 <div class="col-lg-7">
                                     <div class="form-field">
                                         <label for="platform_name">{{ __('Nome do Website') }}</label>
-                                        <input type="text" id="platform_name" name="platform_name" class="form-control">
+                                        <input type="text" id="platform_name" name="platform_name" class="form-control" value="{{ $websitesetting -> website_name }}">
                                     </div>
                                     <br>
                                     <div class="form-field">
                                         <label for="account_email">{{ __('Conta de Email') }}</label>
-                                        <input type="text" id="account_email" name="account_email" class="form-control">
+                                        <input type="text" id="account_email" name="account_email" class="form-control" value="{{ $websitesetting -> website_account_email }}">
                                     </div>
                                     <br>
                                     <div class="form-field">
                                         <label for="desc_website">{{ __('Descrição do Website') }}</label>
-                                        <textarea name="desc_website" id="desc_website" class="form-control"></textarea>
+                                        <textarea name="desc_website" id="desc_website" class="form-control" value="{{ $websitesetting -> website_desc }}"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +44,7 @@
                                 <div class="col-lg-7">
                                     <div class="form-field">
                                         <label for="legal_name_business">{{ __('Nome legal do negócio') }}</label>
-                                        <input type="text" id="legal_name_business" name="legal_name_business" class="form-control">
+                                        <input type="text" id="legal_name_business" name="legal_name_business" class="form-control" value="{{ $websitesetting -> website_legal_name }}">
                                     </div>
                                     <br>
                                     <div class="form-field">
@@ -194,6 +195,7 @@
                             </div>
                         </div>
                     </div>
+                     @endforeach 
                     <div class="buttons-top buttons-top-absolute">
                         <div class="container-fluid">
                             <div class="row">

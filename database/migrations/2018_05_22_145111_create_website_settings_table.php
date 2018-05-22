@@ -15,6 +15,10 @@ class CreateWebsiteSettingsTable extends Migration
     {
         Schema::create('website_settings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('website_name',200);
+            $table->string('website_account_email',200);
+            $table->string('website_legal_name',200);
+            $table->text('website_desc');
             $table->timestamps();
         });
     }

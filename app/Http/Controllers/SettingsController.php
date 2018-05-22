@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\WebsiteSettings;
+
 
 class SettingsController extends Controller
 {
@@ -29,21 +31,23 @@ class SettingsController extends Controller
 
     public function generalSettings()
     {
-        return view('admin.setting.general');
+        
+        $websitesettings = WebsiteSettings::get();
+
+        return view('admin.setting.general', compact('websitesettings'));
     }
 
     public function updateWebsite(Request $request){
-        // return view('admin.setting.account');
-        $this->validate($request, [
-            'platform_name' => 'required'
-        ]);
 
-        // create post
-        $post = new WebsiteSettings;
-        $post->title = $request -> input('platform_name');
-        $post->save();
+        $data = [
+            "website_name" => $request -> input('platform_name'),
+            "website_account_email" => $request -> input('account_email'),
+            "website_legal_name" => $request -> input('legal_name_business')
+        ];
 
-        return redirect('admin.setting.general')->with('success', 'Guardado com sucesso!');
+        WebsiteSettings::where('id',1)->update($data);
+
+        return view('admin.setting.general');
     }
 
     public function accountSettings(){

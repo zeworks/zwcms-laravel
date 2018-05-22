@@ -36,10 +36,11 @@ Route::prefix('admin')->group(function () {
         Route::get('general', 'SettingsController@generalSettings')->name('general');
         Route::get('account', 'SettingsController@accountSettings')->name('account');
         Route::get('shipping', 'SettingsController@shippingSettings')->name('shipping_settings');
+
+        // para atualizar a informacao de definições gerais
+        Route::post('general', 'SettingsController@updateWebsite')->name('settings_general_edit');
     });
 
-    // para atualizar a informacao de definições gerais
-    // Route::get('settings/general', 'SettingsController@updateWebsite')->name('settings_general_edit');
 
     // rota com prefixo banners
     Route::prefix('banners')->group(function () {
