@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestesTable extends Migration
+class CreateWebsiteSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateTestesTable extends Migration
      */
     public function up()
     {
-        Schema::create('testes', function (Blueprint $table) {
+        Schema::create('website_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome',200);
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateTestesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('testes');
+        Schema::dropIfExists('website_settings');
     }
 }

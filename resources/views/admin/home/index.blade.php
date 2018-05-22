@@ -33,56 +33,6 @@
                     <h2 class="page-title">{{ __('Painel de Controlo') }}</h2>
                     <!-- website status -->
                     <div class="row match-height">
-                        <!-- total visitors -->
-                        <div class="col-sm-3">
-                            <div class="cart">
-                                <h3 class="cart__title">
-                                    Total Visitors
-                                </h3>
-                                <p class="cart__percentage">
-                                    2
-                                </p>
-                                <img class="img-responsive cart__image" src="{{ asset('/img/www.png') }}" alt="www">
-                            </div>
-                        </div>
-                        <!-- total visitors ends -->
-                        <!-- social network -->
-                        <div class="col-sm-3">
-                            <div class="cart">
-                                <h3 class="cart__title">
-                                    Social Network
-                                </h3>
-                                <ul class="clearfix">
-                                    <li class="fleft">
-                                        <p class="cart__percentage">
-                                            <span>
-                                                <i class="fab fa-facebook-f"></i>
-                                                <br> 2
-                                            </span>
-                                            
-                                        </p>
-                                    </li>
-                                    <li class="fleft">
-                                        <p class="cart__percentage">
-                                            <span>
-                                                <i class="fab fa-twitter"></i>
-                                                <br> 10
-                                            </span>
-                                        </p>
-                                    </li>
-                                    <li class="fleft">
-                                        <p class="cart__percentage">
-                                            <span>
-                                                <i class="fab fa-google-plus-g"></i>
-                                                <br> 5
-                                            </span>
-                                        </p>
-                                    </li>
-                                </ul>
-                                <img class="img-responsive cart__image" src="{{ asset('/img/heart.png') }}" alt="heart">
-                            </div>
-                        </div>
-                        <!-- social network ends -->
                         <!-- total sales -->
                         <div class="col-sm-3">
                             <div class="cart">

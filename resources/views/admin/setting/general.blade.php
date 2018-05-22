@@ -8,7 +8,7 @@
                 <h2 class="page-title">{{ __('Geral') }}</h2>
             </div>
             <div class="col-xs-12 col-xs-offset-0 col-lg-10 col-lg-offset-1">
-                <form action="" method="post" class="row form edit_general_settings_page" name="edit_general_settings_form" enctype="multipart/form-data">
+                <form action="{{ action('SettingsController@updateWebsite') }}" method="post" class="row form edit_general_settings_page" name="edit_general_settings_form" enctype="multipart/form-data">
                     <input type="hidden" name="type" value="edit_">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="table-items">

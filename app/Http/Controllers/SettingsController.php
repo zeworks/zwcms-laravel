@@ -32,6 +32,20 @@ class SettingsController extends Controller
         return view('admin.setting.general');
     }
 
+    public function updateWebsite(Request $request){
+        // return view('admin.setting.account');
+        $this->validate($request, [
+            'platform_name' => 'required'
+        ]);
+
+        // create post
+        $post = new WebsiteSettings;
+        $post->title = $request -> input('platform_name');
+        $post->save();
+
+        return redirect('admin.setting.general')->with('success', 'Guardado com sucesso!');
+    }
+
     public function accountSettings(){
         return view('admin.setting.account');
     }
