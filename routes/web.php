@@ -92,7 +92,6 @@ Route::prefix('admin')->group(function () {
         Route::get('edit', 'ShippingController@editShipping')->name('shipping_edit');
     });
 
-
 });
 
 

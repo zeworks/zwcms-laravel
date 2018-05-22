@@ -3,34 +3,34 @@
         <div class="table-items">
             <!-- DISCOUNT CODE -->
             <div class="form-field form--field__withbtn clearfix">
-                <h4 class="strong">Discount Code</h4>
-                <a href="#" class="link gen_code">Generate Code</a>
+                <h4 class="strong">Código de Desconto</h4>
+                <a href="#" class="link gen_code">Gerar código</a>
                 <input type="text" name="discount_code" id="discount_code" class="form-control" required>
-                <small>Customers will enter this discount code at checkout.</small>
+                <small>Os clientes vão usar este código no checkout.</small>
             </div>
             <hr>
             <!-- OPTIONS -->
-            <h4 class="strong">Options</h4>
+            <h4 class="strong">Opções</h4>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-lg-6">
                     <div class="form-field">
-                        <label for="disc_type">Discount Type</label>
+                        <label for="disc_type">Tipo de desconto</label>
                         <select name="disc_type" id="disc_type" class="form-control">
-                            <option value="perc_value" data-toggle="appliesto_item">Percentage discount</option>
-                            <option value="perc_value" data-toggle="appliesto_item">Fixed Amount</option>
-                            <option value="perc_value" data-toggle="countries_item">Free Shipping</option>
+                            <option value="perc_discount" data-toggle="appliesto_item">Desconto em percentagem</option>
+                            <option value="fixed_amount" data-toggle="appliesto_item">Montante Fixo</option>
+                            <option value="free_shipp" data-toggle="countries_item">Envios Grátis</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-lg-6">
                     <div class="form-field">
-                        <label for="disc_type">Discount Type</label>
-                        <input type="text" id="disc_type" name="disc_type" class="form-control" required>
+                        <label for="disc_value">Valor de desconto</label>
+                        <input type="text" id="disc_value" name="disc_value" class="form-control" required>
                     </div>
                 </div>
                 <div class="col-xs-12">
                     <div class="form-field">
-                        <label for="min_pursh">This discount requires a minimum purchase</label>
+                        <label for="min_pursh">Este desconto requere um mínimo de compra</label>
                         <input type="checkbox" name="min_pursh" id="min_pursh">
                     </div>
                 </div>
@@ -39,17 +39,13 @@
             <!-- APPLIES TO -->
             <div class="form-toggle">
                 <div class="appliesto_item item active">
-                    <h4 class="strong">Applies to</h4>
+                    <h4 class="strong">Aplica-se a:</h4>
                     <div class="form-field">
-                        <label for="entire_order">Entire Order</label>
+                        <label for="entire_order">Toda a encomenda</label>
                         <input type="radio" name="appliesto_item" id="entire_order">
                     </div>
                     <div class="form-field">
-                        <label for="spec_collec">Specific Collections</label>
-                        <input type="radio" name="appliesto_item" id="spec_collec">
-                    </div>
-                    <div class="form-field">
-                        <label for="spec_prod">Specific Products</label>
+                        <label for="spec_prod">Produtos Específicos</label>
                         <input type="radio" name="appliesto_item" id="spec_prod">
                     </div>
                 </div>
@@ -78,14 +74,19 @@
             </div>
             <hr>
             <!-- COSTUMER ELIGIBILITY -->
-            <h4 class="strong">Costumer Eligibility</h4>
+            <h4 class="strong">Elegibilidade do cliente</h4>
             <div class="form-field">
-                <label for="everyone">Everyone</label>
+                <label for="everyone">Todos</label>
                 <input type="radio" name="costumer_eligibility" value="everyone" id="everyone">
             </div>
             <div class="form-field">
-                <label for="spec_group_costumers">Specific group of costumers</label>
+                <label for="spec_group_costumers">Grupo de clientes específicos</label>
                 <input type="radio" name="costumer_eligibility" value="spec_group_costumers" id="spec_group_costumers">
+                <input type="text" name="costumer_eligibility_text" placeholder="Pesquise clientes....">
+            </div>
+            <div class="form-field">
+                <label for="spec_costumers">Clientes específicos</label>
+                <input type="radio" name="costumer_eligibility" value="spec_costumers" id="spec_costumers">
             </div>
         </div>
     </div>

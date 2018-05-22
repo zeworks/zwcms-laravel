@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Visitors extends Migration
+class CreateTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,11 @@ class Visitors extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tests', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('ip',200);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class Visitors extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tests');
     }
 }

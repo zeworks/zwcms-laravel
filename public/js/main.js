@@ -44,7 +44,7 @@ function resizableElements(viewport) {
       }, 2000);
     }
 
-    var bloc_item_count = 1;
+    var bloc_item_count = $(".bloc").length;
     $(".btn-addBloc").click(function () {
         bloc_item_count++;
         // replace os IDs com um count e o numero do bloco no HTML
@@ -137,11 +137,6 @@ function toggleItems() {
     }
   });
 
-  // $(".tree ul li ul li input").click(function(){
-  //   var subCategory = $(this).attr("data-sub");
-  //   $("#"+subCategory).click();
-  // });
-
   $(".tree ul li input").click(function () {
     $(this).toggleClass("checked");
     if ($(this).hasClass("checked")) {
@@ -164,8 +159,8 @@ function toggleItems() {
 
 
   // add discount page
-  $("form select option").click(function () {
-    var target = $(this).attr("data-toggle");
+  $("form select").change(function () {
+    var target = $(this).find(":selected").attr("data-toggle");
     $(".form-toggle .item").removeClass("active");
     $("." + target).addClass("active");
   });
@@ -240,3 +235,8 @@ function generate_discount_code() {
   return "#" + text;
 }
 
+function insertColorProduct($color){
+  var char = "#";
+  if($color.indexOf(char) > -1)
+    $(".available-colors").append("<span class='color-item' style='background-color: "+$color+"'></span>");
+}

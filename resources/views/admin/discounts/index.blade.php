@@ -28,17 +28,19 @@
                     <!-- templates list -->
                     <table class="table-items__table">
                         <tr>
-                            <th>CODE</th>
-                            <th>Discount Value</th>
-                            <th>Start Date</th>
-                            <th>Finish Date</th>
-                            <th>Status</th>
+                            <th>Código de desconto</th>
+                            <th>Valor de desconto</th>
+                            <th>Usados</th>
+                            <th>Data Início</th>
+                            <th>Data Fim</th>
+                            <th>Estado</th>
                         </tr>
                         <tr class="item-table">
                             <td>
                                 <a href="{{ route('discount_edit') }}" class="go-back">#Discount1</a>
                             </td>
                             <td>10%</td>
+                            <td>2/70</td>
                             <td>20:53 19/01/2017</td>
                             <td>20:53 25/01/2017</td>
                             <td>
