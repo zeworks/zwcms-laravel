@@ -40,7 +40,6 @@
 
 	<link rel="dns-prefetch" href="https://ssl.google-analytics.com/">
 	<link rel="dns-prefetch" href="//connect.facebook.net">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -184,6 +183,11 @@
         </aside>
         @endif
         <main>
+            @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
             @yield('content')
         </main>
     </div>

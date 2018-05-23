@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'User Admin',
-            'email' => 'josenogueira@loba.pt',
+            'email' => 'admin@zwcms.com',
             'password' => Hash::make( 'zwcms' ),
         ]);
     }
@@ -47,8 +47,7 @@ class WebsiteSettingsTableSeeder extends Seeder
             'website_name' => 'zwcms',
             'website_account_email' => 'zwcms@mail.com',
             'website_legal_name' => 'zwcms',
-            'website_desc' => 'zwcms',
-            
+            'website_desc' => 'zwcms'
         ]);
     }
 }

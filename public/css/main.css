@@ -12119,6 +12119,8 @@ aside ul li > ul li .aside__link:hover {
 /* line 1, modules/_alert.scss */
 .alert {
   position: fixed;
+  right: 0;
+  top: 200px;
   z-index: 10;
   border: 1px solid transparent;
   padding: 10px;

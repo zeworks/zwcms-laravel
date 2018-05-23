@@ -29,6 +29,13 @@ function resizableElements(viewport) {
       height: 200
     });
 
+    if($(".alert").is(":visible")){
+      setTimeout(function(){
+        $(".alert").fadeOut(1000, function(){
+          $(this).remove();
+        })
+      }, 3000);
+    }
 
     $("#upload_photo").change(function () {
       readURL(this);
