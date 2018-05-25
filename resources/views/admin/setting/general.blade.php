@@ -1,4 +1,4 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.admin') @section('content')
 <section class="main-content settings_page">
     <div class="container-fluid">
         <div class="row">
@@ -8,11 +8,25 @@
                 <h2 class="page-title">{{ __('Geral') }}</h2>
             </div>
             <div class="col-xs-12 col-xs-offset-0 col-lg-10 col-lg-offset-1">
-                <form action="{{ route('settings_general_edit') }}" method="post" class="row form edit_general_settings_page" name="edit_general_settings_form" enctype="multipart/form-data">
+                <form action="{{ route('settings_general_edit') }}" method="post" class="row form edit_general_settings_page" name="edit_general_settings_form"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="col-lg-8 col-lg-offset-2">
-                    @foreach ($websitesettings as $websitesetting) 
+                        @foreach ($websitesettings as $websitesetting)
                         <div class="table-items">
+                            <div class="row divided">
+                                <div class="col-xs-12">
+                                    <div class="fright">
+                                        <h4 class="strong fleft">{{ __('Modo Loja')}}</h4>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type="hidden" name="status_hidden" class="status_hidden">
+                                        <div class="switch fright  {{ $websitesetting -> website_mode_store == 'on' ? 'checked' : '' }}">
+                                            <input type="checkbox" class="btsp-check" name="website_mode_store"  {{ $websitesetting -> website_mode_store == 'on' ? 'checked' : '' }}>
+                                            <span class="toggle toggle--round"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row divided">
                                 <div class="col-lg-5">
                                     <h4 class="strong">{{ __('Dados do Website') }}</h4>
@@ -140,7 +154,7 @@
                             <div class="row divided">
                                 <div class="col-lg-5">
                                     <h4 class="strong">
-                                       {{ __('Redes Sociais') }}</h4>
+                                        {{ __('Redes Sociais') }}</h4>
                                     <small>{{ __('Use as redes sociais para mostrar os seus produtos!') }}</small>
                                 </div>
                                 <div class="col-lg-7">
@@ -172,7 +186,8 @@
                                                         <i class="fab fa-instagram"></i>
                                                     </span>
                                                 </label>
-                                                <input type="text" name="social_instagram" id="social_instagram" class="form-control fleft" placeholder="Instagram url..." value="{{ $websitesetting -> website_url_instagram }}">
+                                                <input type="text" name="social_instagram" id="social_instagram" class="form-control fleft" placeholder="Instagram url..."
+                                                    value="{{ $websitesetting -> website_url_instagram }}">
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
@@ -182,14 +197,15 @@
                                                         <i class="fab fa-google-plus-g"></i>
                                                     </span>
                                                 </label>
-                                                <input type="text" name="social_google_plus" id="social_google_plus" class="form-control fleft" placeholder="Google Plus url..." value="{{ $websitesetting -> website_url_google }}">
+                                                <input type="text" name="social_google_plus" id="social_google_plus" class="form-control fleft" placeholder="Google Plus url..."
+                                                    value="{{ $websitesetting -> website_url_google }}">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach 
+                        @endforeach
                     </div>
                     <div class="buttons-top buttons-top-absolute">
                         <div class="container-fluid">

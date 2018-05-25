@@ -33,6 +33,7 @@ class CreateWebsiteSettingsTable extends Migration
             $table->string('website_url_twitter',500)->nullable();
             $table->string('website_url_instagram',500)->nullable();
             $table->string('website_url_google',500)->nullable();
+            $table->string('website_mode_store',20)->nullable();
             $table->timestamps();
         });
     }

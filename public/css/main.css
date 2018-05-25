@@ -10629,12 +10629,17 @@ body.content-collapse .main-content {
 @media (max-width: 767px) {
   /* line 9, base/_base.scss */
   body.content-collapse .main-content {
-    padding-left: 40px;
+    padding-left: 0px;
   }
 }
 /* line 17, base/_base.scss */
 body.content-collapse aside {
   width: 40px;
+}
+@media (max-width: 768px){
+  body.content-collapse aside{
+    width: 0;
+  }
 }
 /* line 20, base/_base.scss */
 body.content-collapse aside .aside__link {
@@ -10762,6 +10767,7 @@ small, .small {
   /* line 109, base/_base.scss */
   .main-content {
     padding-right: 0;
+    padding-left: 0;
   }
 }
 /* line 119, base/_base.scss */
@@ -11453,7 +11459,6 @@ nav .user-top-bar__info span {
   /* line 51, modules/_nav.scss */
   nav .user-top-bar__info {
     height: 100%;
-    width: 60px;
     float: right;
   }
 }
@@ -11490,11 +11495,11 @@ nav .user-top-bar__links {
 @media (max-width: 767px) {
   /* line 73, modules/_nav.scss */
   nav .user-top-bar__links {
-    width: 300px;
+    width: auto;
     position: absolute;
-    top: auto;
+    top: 40px;
     right: 0;
-    bottom: -90px;
+    bottom: auto;
     left: auto;
   }
 }
@@ -11548,6 +11553,11 @@ aside {
   overflow: hidden;
   z-index: 11;
 }
+@media (max-width: 767px){
+  aside{
+    width: 80%;
+  }
+}
 /* line 127, modules/_nav.scss */
 aside li.active .aside__link,
 aside .aside__link.active {
@@ -11565,6 +11575,11 @@ aside .aside__link {
   -webkit-transition: background-color 200ms ease, padding-left 200ms ease;
   -moz-transition: background-color 200ms ease, padding-left 200ms ease;
   transition: background-color 200ms ease, padding-left 200ms ease;
+}
+@media (max-width: 767px){
+  aside .aside__link{
+    width: 100%;
+  }
 }
 /* line 140, modules/_nav.scss */
 aside .aside__link:hover {

@@ -57,7 +57,8 @@ class SettingsController extends Controller
             "website_url_facebook" => $request -> input('social_facebook'),
             "website_url_twitter" => $request -> input('social_twitter'),
             "website_url_instagram" => $request -> input('social_instagram'),
-            "website_url_google" => $request -> input('social_google_plus')
+            "website_url_google" => $request -> input('social_google_plus'),
+            "website_mode_store" => $request -> input('website_mode_store')
         ];
 
         WebsiteSettings::where('id',1)->update($data);

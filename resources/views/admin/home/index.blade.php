@@ -1,4 +1,4 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.admin') @section('content')
 <?php
     $date = new DateTime('now', new DateTimeZone('Europe/Lisbon'));
     $pieces = explode(":",$date->format('H:i:s'));
