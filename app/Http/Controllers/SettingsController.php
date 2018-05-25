@@ -26,7 +26,8 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('admin.setting.index');
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.setting.index', compact('websitesettings'));
     }
 
     public function generalSettings()
@@ -67,10 +68,12 @@ class SettingsController extends Controller
     }
 
     public function accountSettings(){
-        return view('admin.setting.account');
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.setting.account', compact('websitesettings'));
     }
 
     public function shippingSettings(){
-        return view('admin.setting.shipping');
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.setting.shipping', compact('websitesettings'));
     }
 }

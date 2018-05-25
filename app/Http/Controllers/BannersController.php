@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\WebsiteSettings;
 use App\Banners;
+
 
 class BannersController extends Controller
 {
@@ -18,14 +20,21 @@ class BannersController extends Controller
     }
     
     function index(){
-        return view('admin.banners.index');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.banners.index', compact('websitesettings'));
     }
 
     public function newBanner(){
-        return view('admin.banners.create');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.banners.create', compact('websitesettings'));
     }
 
     public function editBanner(){
-        return view('admin.banners.edit');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.banners.edit', compact('websitesettings'));
     }
 }

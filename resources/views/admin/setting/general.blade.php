@@ -102,6 +102,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @if($websitesettings[0]->website_mode_store)
                             <div class="row divided">
                                 <div class="col-lg-5">
                                     <h4 class="strong">{{ __('Padrões e Formatos') }}</h4>
@@ -151,6 +152,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                             <div class="row divided">
                                 <div class="col-lg-5">
                                     <h4 class="strong">

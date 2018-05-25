@@ -44,6 +44,7 @@
             </div>
         </div>
         <div class="row">
+            @if($websitesettings[0]->website_mode_store)
             <div class="col-sm-4">
                 <div class="table-items">
                     <p>
@@ -99,6 +100,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             <div class="col-sm-4">
                 <div class="table-items">
                     <p>

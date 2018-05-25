@@ -27,6 +27,7 @@
                                 </div>
                             </a>
                         </div>
+                        @if($websitesettings[0]->website_mode_store)
                         <div class="col-lg-3 col-sm-6 col-xs-12 settings_page__item">
                             <a href="processador/modal.php?page=checkout" class="settings_page__link">
                                 <i class="fas fa-shopping-cart"></i>
@@ -54,6 +55,7 @@
                                 </div>
                             </a>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

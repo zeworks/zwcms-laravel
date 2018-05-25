@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\WebsiteSettings;
 
 class ProductsController extends Controller
 {
@@ -17,14 +18,23 @@ class ProductsController extends Controller
     }
 
     public function index(){
-        return view('admin.products.index');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.products.index', compact('websitesettings'));
     }
 
     public function newProduct(){
-        return view('admin.products.create');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.products.create', compact('websitesettings'));
     }
 
     public function editProduct(){
-        return view('admin.products.edit');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.products.edit', compact('websitesettings'));
     }
 }

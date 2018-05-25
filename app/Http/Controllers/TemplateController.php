@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\WebsiteSettings;
 
 class TemplateController extends Controller
 {
@@ -19,14 +20,23 @@ class TemplateController extends Controller
 
     public function index()
     {
-        return view('admin.templates.index');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.templates.index', compact('websitesettings'));
     }
 
     public function newTemplate(){
-        return view('admin.templates.create');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.templates.create', compact('websitesettings'));
     }
 
     public function editTemplate(){
-        return view('admin.templates.edit');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.templates.edit', compact('websitesettings'));
     }
 }

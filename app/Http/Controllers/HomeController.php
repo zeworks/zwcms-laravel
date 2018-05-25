@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\WebsiteSettings;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,10 @@ class HomeController extends Controller
    
     public function index()
     {
-        return view('admin.home.index');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.home.index', compact('websitesettings'));
     }
 
     

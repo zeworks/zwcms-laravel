@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\WebsiteSettings;
 
 class BlogController extends Controller
 {
@@ -17,14 +18,23 @@ class BlogController extends Controller
     }
 
     public function index(){
-        return view('admin.blog.index');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.blog.index', compact('websitesettings'));
     }
 
     public function newBlog(){
-        return view('admin.blog.create');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.blog.create', compact('websitesettings'));
     }
 
     public function editBlog(){
-        return view('admin.blog.edit');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+        // returns to the view with the website settings compacted
+        return view('admin.blog.edit', compact('websitesettings'));
     }
 }

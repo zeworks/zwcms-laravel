@@ -14,7 +14,7 @@
     <div class="main-content dashboard">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                     <!-- dashboard -->
                     <!-- user info -->
                     <div class="row">
@@ -29,8 +29,8 @@
                     </div>
                     <!-- user info ends -->
                     <br>
-                    <br>
-                    <h2 class="page-title">{{ __('Painel de Controlo') }}</h2>
+                    <!-- <h2 class="page-title">{{ __('Painel de Controlo') }}</h2> -->
+                    @if($websitesettings[0]->website_mode_store)
                     <!-- website status -->
                     <div class="row match-height">
                         <!-- total sales -->
@@ -57,48 +57,10 @@
                         <!-- total orders ends -->
                     </div>
                     <!-- website status ends -->
+                    @endif
                     <!-- messages and orders -->
                     <div class="row match-height">
-                        <!-- /messages -->
-                        <div class="col-xs-12 col-sm-6">
-                            <h2 class="page-title">
-                                {{ __('Messages')}}
-                                <small class="caps">[{{ __('Received')}}:
-                                    <strong>70</strong>]</small>
-                            </h2>
-                            <div class="table-items">
-                                <form method="post" action="" class="search search--users active">
-                                    <input type="text" name="search" placeholder="{{ __('Search') }}..." class="form-control search__input">
-                                    <button type="submit" class="search__btn">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </form>
-                                <br>
-                                <br>
-                                <table class="table-items__table">
-                                    <tr>
-                                        <th>{{ __('Subject') }}</th>
-                                        <th>{{ __('Email Contact') }}</th>
-                                        <th>{{ __('Date') }}</th>
-                                    </tr>
-                                    <tr class="item-table">
-                                        <td>
-                                            <a href="#" data-toggle="modal" data-target="#modal-message" data-id="1" class="go-back modal-link">teste</a>
-                                        </td>
-                                        <td>José Nogueira</td>
-                                        <td>27-01-2018</td>
-                                    </tr>
-                                    <tr class="item-table">
-                                        <td>
-                                            <a href="#" data-toggle="modal" data-target="#modal-message" data-id="1" class="go-back modal-link">teste</a>
-                                        </td>
-                                        <td>José Nogueira</td>
-                                        <td>27-01-2018</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- /messages ends -->
+                        @if($websitesettings[0]->website_mode_store)
                         <!-- orders -->
                         <div class="col-xs-12 col-sm-6">
                             <h2 class="page-title">{{ __('Orders & Payments') }}</h2>
@@ -119,6 +81,7 @@
                             </div>
                         </div>
                         <!-- /orders ends -->
+                        @endif
                     </div>
                     <!-- messages and orders ends -->
                     <!-- mailing list -->
@@ -167,6 +130,7 @@
                     <!-- mailing list ends -->
                     <!-- dashboard ends -->
                 </div>
+                @if($websitesettings[0]->website_mode_store)
                 <div class="col-lg-2">
                     <div class="right-asidebar">
                         <section>
@@ -194,6 +158,7 @@
                         </section>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

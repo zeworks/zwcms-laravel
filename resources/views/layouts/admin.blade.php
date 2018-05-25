@@ -132,6 +132,7 @@
                         {{ __('Blog') }}
                     </a>
                 </li>
+                @if($websitesettings[0]->website_mode_store)
                 <!-- costumers -->
                 <li class="{{ Request::is('admin/costumers*') ? 'active' : '' }}">
                     <a href="{{ route('costumers') }}" class="aside__link" title="{{ __('Clientes') }}">
@@ -139,6 +140,7 @@
                         {{ __('Clientes') }}
                     </a>
                 </li>
+                @endif
                 <!-- products -->
                 <li class="{{ Request::is('admin/products*') ? 'active' : '' }}">
                     <a href="{{ route('products') }}" class="aside__link" title="{{ __('Produtos') }}">
@@ -146,8 +148,9 @@
                         {{ __('Produtos') }}
                     </a>
                 </li>
-                 <!-- discounts -->
-                 <li class="{{ Request::is('admin/discounts*') ? 'active' : '' }}">
+                @if($websitesettings[0]->website_mode_store)
+                <!-- discounts -->
+                <li class="{{ Request::is('admin/discounts*') ? 'active' : '' }}">
                     <a href="{{ route('discounts') }}" class="aside__link" title="{{ __('Discontos') }}">
                         <i class="fas fa-percent"></i>
                         {{ __('Discontos') }}
@@ -174,7 +177,7 @@
                         {{ __('Envios') }}
                     </a>
                 </li>
-                
+                @endif
             </ul>
             <!-- settings -->
             <a title="Definições" href="{{ route('settings') }}" class="aside__link aside__link--absolute-bottom {{ Request::is('admin/settings*') ? 'active' : '' }}">
