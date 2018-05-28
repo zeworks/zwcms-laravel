@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\WebsiteSettings;
+use App\Http\Controllers\Controller;
+use App\Banners;
 
-class ProductsController extends Controller
+
+class BannersController extends Controller
 {
-    /**
+     /**
      * Create a new controller instance.
      *
      * @return void
@@ -16,25 +19,23 @@ class ProductsController extends Controller
     {
         $this->middleware('auth');
     }
-
-    public function index(){
+    
+    function index(){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
         // returns to the view with the website settings compacted
-        return view('admin.products.index', compact('websitesettings'));
+        return view('admin.banners.index', compact('websitesettings'));
     }
 
-    public function newProduct(){
+    public function newBanner(){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
-        // returns to the view with the website settings compacted
-        return view('admin.products.create', compact('websitesettings'));
+        return view('admin.banners.create', compact('websitesettings'));
     }
 
-    public function editProduct(){
+    public function editBanner(){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
-        // returns to the view with the website settings compacted
-        return view('admin.products.edit', compact('websitesettings'));
+        return view('admin.banners.edit', compact('websitesettings'));
     }
 }

@@ -7,11 +7,11 @@
                     <i class="fas fa-angle-left"></i> {{ __('Definições') }}</a>
                 <h2 class="page-title">{{ __('Geral') }}</h2>
             </div>
-            <div class="col-xs-12 col-xs-offset-0 col-lg-10 col-lg-offset-1">
+            <div class="col-xs-12">
                 <form action="{{ route('settings_general_edit') }}" method="post" class="row form edit_general_settings_page" name="edit_general_settings_form"
                     enctype="multipart/form-data">
                     @csrf
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12">
                         @foreach ($websitesettings as $websitesetting)
                         <div class="table-items">
                             <div class="row divided">

@@ -6,7 +6,7 @@
             <div class="col-xs-12">
                 <h2 class="page-title">{{ __('Definições') }}</h2>
             </div>
-            <div class="col-xs-12 col-xs-offset-0 col-lg-10 col-lg-offset-1">
+            <div class="col-xs-12">
                 <div class="table-items">
                     <div class="row row-equal-height">
                         <div class="col-lg-3 col-sm-6 col-xs-12 settings_page__item">
