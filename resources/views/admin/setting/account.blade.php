@@ -8,14 +8,15 @@
                 <h2 class="page-title">{{ __('Geral') }}</h2>
             </div>
             <div class="col-xs-12 col-xs-offset-0 col-lg-10 col-lg-offset-1">
-                <form action="" method="post" name="form_profile" class="table-items clearfix form form--profile" enctype="multipart/form-data">
+                <form action="{{ route('settings_account_edit') }}" method="post" name="form_profile" class="table-items clearfix form form--profile" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-xs-12 col-lg-6 col-sm-6">
                             <div class="form-field">
                                 <label for="username">
                                     {{ __('Nome de Utilizador') }}
                                 </label>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="username" id="username" class="form-control" value="{{$usersettings[0]->name}}">
                             </div>
                         </div>
                         <div class="col-xs-12 col-lg-6 col-sm-6">
@@ -23,7 +24,7 @@
                                 <label for="email_address">
                                     {{ __('Email de Utilizador') }}
                                 </label>
-                                <input type="text" name="email_address" id="email_address" class="form-control">
+                                <input type="text" name="email_address" id="email_address" class="form-control" value="{{$usersettings[0]->email}}">
                             </div>
                         </div>
                     </div>
@@ -35,7 +36,7 @@
                                     <br>
                                     <small>{{__('Altere sua password para entrar no seu painel administrativo do website')}}</small>
                                 </label>
-                                <input type="text" id="password_reset" name="password_reset" class="form-control">
+                                <input type="password" id="password_reset" name="password_reset" class="form-control" value="{{$usersettings[0]->password}}">
                             </div>
                         </div>
                         <div class="col-xs-12">
@@ -44,7 +45,7 @@
                                     <h3 class="cart__title">{{ __('Sobre mim') }}</h3>
                                     <small>{{__('Este texto irá ser apresentado na página de sobre')}}</small>
                                 </label>
-                                <textarea name="user_about" id="user_about" class="text-editor"></textarea>
+                                <textarea name="user_about" id="user_about" class="text-editor">{{$usersettings[0]->user_about}}</textarea>
                             </div>
                         </div>
                     </div>

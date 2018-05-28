@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\WebsiteSettings;
+use App\User;
+use Hash;
 
 
 class SettingsController extends Controller
@@ -70,7 +72,22 @@ class SettingsController extends Controller
 
     public function accountSettings(){
         $websitesettings = WebsiteSettings::get();
-        return view('admin.setting.account', compact('websitesettings'));
+        $usersettings = User::get();
+        return view('admin.setting.account', compact('websitesettings','usersettings'));
+    }
+
+    function updateAccountSettings(Request $request){
+        // user data
+        $data = [
+            "name" => $request -> input("username"),
+            "email" => $request -> input("email_address"),
+            "password" => Hash::make($request -> input("password_reset")),
+            "user_about" => $request -> input("user_about")
+        ];
+
+        User::where('id',1)->update($data);
+
+        return redirect(route("account"))->with("message","Alterado com sucesso!");
     }
 
     public function shippingSettings(){

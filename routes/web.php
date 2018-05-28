@@ -39,6 +39,8 @@ Route::prefix('admin')->group(function () {
 
         // para atualizar a informacao de definições gerais
         Route::post('general', 'SettingsController@updateWebsite')->name('settings_general_edit');
+        // para atualizar a informação do utilizador do BO;
+        Route::post('account', 'SettingsController@updateAccountSettings')->name('settings_account_edit');
     });
 
 

@@ -23,13 +23,18 @@ class BannersController extends Controller
     function index(){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
+
+        $websiteBanners = Banners::get();
+        
         // returns to the view with the website settings compacted
-        return view('admin.banners.index', compact('websitesettings'));
+        return view('admin.banners.index', compact('websitesettings','banners'));
     }
 
     public function newBanner(){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
+        // to add new banner
+        
         return view('admin.banners.create', compact('websitesettings'));
     }
 
