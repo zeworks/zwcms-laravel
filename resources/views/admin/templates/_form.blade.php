@@ -1,4 +1,4 @@
-<form action="" class="row form" enctype="multipart/form-data">
+<form action="{{route('template_insert')}}" class="row form" enctype="multipart/form-data">
     <div class="col-lg-9 col-sm-6 col-xs-12">
         <div class="table-items">
             <div class="form-field clearfix">
