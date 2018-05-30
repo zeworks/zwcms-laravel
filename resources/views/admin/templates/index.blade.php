@@ -36,14 +36,15 @@
                             <th>Estado</th>
                             <th></th>
                         </tr>
+                        @foreach($templatedata as $template)
                         <tr class="item-table">
                             <td>
-                                <a href="{{ route('template_edit') }}" class="go-back">
+                                <a href="{{ route('template_edit',['id' => $template->id]) }}" class="go-back">
                                     <img src="{{ asset('img/zwlogo.png') }}" class="rounded" width="40" height="40" alt="zwlogo.png">
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('template_edit') }}" class="go-back">Nome do Template</a>
+                                <a href="{{ route('template_edit',['id' => $template->id]) }}" class="go-back">Nome do Template</a>
                             </td>
                             <td>12/05/2018</td>
                             <td>
@@ -63,6 +64,7 @@
                                 </form>
                             </td>
                         </tr>
+                        @endforeach
                     </table>
                     <!-- templates list ends -->
                 </div>

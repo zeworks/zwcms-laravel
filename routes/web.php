@@ -53,7 +53,7 @@ Route::prefix('admin')->group(function () {
     // rota com prefixo templates
     Route::prefix('templates')->group(function () {
         Route::get('new', 'TemplateController@newTemplate')->name('template_new');
-        Route::get('edit', 'TemplateController@editTemplate')->name('template_edit');
+        Route::get('edit/{id}', 'TemplateController@editTemplate')->name('template_edit');
         
         // para criar novo template
         Route::post('new', 'TemplateController@insertNewTemplate')->name('template_insert');

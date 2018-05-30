@@ -25,8 +25,12 @@ class TemplateController extends Controller
     {
         // to include website settings
         $websitesettings = WebsiteSettings::get();
+
+        // to include template data
+        $templatedata = Templates::get();
+
         // returns to the view with the website settings compacted
-        return view('admin.templates.index', compact('websitesettings'));
+        return view('admin.templates.index', compact('websitesettings','templatedata'));
     }
 
     public function newTemplate(){
@@ -37,20 +41,27 @@ class TemplateController extends Controller
     }
 
     function insertNewTemplate(Request $request){
+        $path = $request->file('upload_banner')->store('images');
+
         $data = [
-            "title" => $request -> input("username"),
-            "status" => $request -> input("email_address"),
+            "title" => $request -> input("title"),
+            "status" => $request -> input("status_item"),
+            "featured_image" => $path
         ];
 
-        Templates::save($data);
+        Templates::insert($data);
 
-        return redirect(route("templates/new"))->with("message","Inserido com sucesso!");
+        return redirect()->back()->with("message","Inserido com sucesso!");
     }
 
-    public function editTemplate(){
+    public function editTemplate($id){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
+
+        // to include template data
+        $templatedata = Templates::find($id);
+
         // returns to the view with the website settings compacted
-        return view('admin.templates.edit', compact('websitesettings'));
+        return view('admin.templates.edit', compact('websitesettings','templatedata'));
     }
 }

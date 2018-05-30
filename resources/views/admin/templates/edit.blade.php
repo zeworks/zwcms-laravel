@@ -11,7 +11,9 @@
                 <h2 class="page-title">{{ __('Editar Página')}}</h2>
                 <!-- page title ends -->
                 <!-- form to add template -->
-                @include('admin.templates._form')
+                <form action="" class="row form" method="post" enctype="multipart/form-data">
+                    @include('admin.templates._form')
+                </form>
                 <!-- form to add template ends -->
             </div>
         </div>

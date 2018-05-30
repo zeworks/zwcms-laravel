@@ -1,4 +1,4 @@
-<form action="{{route('template_insert')}}" class="row form" enctype="multipart/form-data">
+    @csrf
     <div class="col-lg-9 col-sm-6 col-xs-12">
         <div class="table-items">
             <div class="form-field clearfix">
@@ -59,7 +59,7 @@
                 <!-- previewed image -->
                 <img class="image-previewer">
                 <div class="buttons-top fleft">
-                    <input type="file" name="upload_banner[]" id="upload_photo" class="hidden">
+                    <input type="file" name="upload_banner" id="upload_photo" class="hidden">
                     <a href="#" class="btn btn-default upload" data-target="upload_photo">Enviar Ficheiro</a>
                 </div>
             </div>
@@ -80,4 +80,3 @@
             </div>
         </div>
     </div>
-</form>
