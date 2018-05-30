@@ -17,6 +17,7 @@
                 <div class="table-items">
                     <!-- search -->
                     <form method="post" action="" class="search search--users active">
+                        @csrf
                         <input type="text" name="search" placeholder="Procurar..." class="form-control search__input">
                         <button type="submit" class="search__btn">
                             <i class="fa fa-search"></i>
@@ -28,36 +29,38 @@
                     <!-- templates list -->
                     <table class="table-items__table with--image">
                         <tr>
-                            <th>
-                                <!-- image if exist -->
-                            </th>
-                            <th>Página</th>
-                            <th>Data de Registo</th>
-                            <th>Estado</th>
+                            <th></th>
+                            <th>{{ __('Página') }}</th>
+                            <th>{{ __('Data de Registo') }}</th>
+                            <th>{{ __('Estado') }}</th>
                             <th></th>
                         </tr>
                         @foreach($templatedata as $template)
                         <tr class="item-table">
                             <td>
                                 <a href="{{ route('template_edit',['id' => $template->id]) }}" class="go-back">
-                                    <img src="{{ asset('img/zwlogo.png') }}" class="rounded" width="40" height="40" alt="zwlogo.png">
+                                    <img src="{{$template->featured_image}}" class="rounded" width="40" height="40" alt="template image {{$template->id}}">
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('template_edit',['id' => $template->id]) }}" class="go-back">Nome do Template</a>
+                                <a href="{{ route('template_edit',['id' => $template->id]) }}" class="go-back">{{$template->title}}</a>
                             </td>
-                            <td>12/05/2018</td>
+                            <td>{{$template->created_at}}</td>
                             <td>
-                                <div class="status status--sucss">
-                                    Activo
-                                </div>
-                                <div class="status status--warn">
-                                    Inactivo
-                                </div>
+                                @if($template->status == 'on')
+                                    <div class="status status--sucss">
+                                        Activo
+                                    </div>
+                                @else
+                                    <div class="status status--warn">
+                                        Inactivo
+                                    </div>
+                                @endif
                             </td>
                             <td class="last-item-table">
                                 <form action="" method="post">
-                                    <input type="hidden" class="form-control" name="id_product" value="">
+                                    @csrf
+                                    <input type="hidden" class="form-control" name="id_product" value="{{$template->id}}">
                                     <button type="submit" name="remove_publication_btn" class="link" title="Remover">
                                         <i class="fa fa-trash"></i>
                                     </button>
