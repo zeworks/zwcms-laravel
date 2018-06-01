@@ -41,12 +41,13 @@ class TemplateController extends Controller
     }
 
     function insertNewTemplate(Request $request){
-        $path = $request->file('upload_banner')->store('images');
 
+        $filename = $request->file('upload_banner')->getClientOriginalName();
+        $path = $request->file('upload_banner')->storeAs('public/images',$filename);
         $data = [
             "title" => $request -> input("title"),
             "status" => $request -> input("status_item"),
-            "featured_image" => $path
+            "featured_image" => $filename
         ];
 
         Templates::insert($data);
