@@ -14,7 +14,7 @@
     <div class="main-content dashboard">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="{{$websitesettings[0]->website_mode_store == 'on' ? 'col-lg-10' : 'col-lg-12' }}">
                     <!-- dashboard -->
                     <!-- user info -->
                     <div class="row">
