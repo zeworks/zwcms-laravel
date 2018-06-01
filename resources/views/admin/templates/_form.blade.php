@@ -3,7 +3,7 @@
     <div class="table-items">
         <div class="form-field clearfix">
             <label for="title">Nome da Página</label>
-            <input type="text" name="title" id="title" class="form-control" required value="{{$templatedata->title}}">
+            <input type="text" name="title" id="title" class="form-control" required value="{{{ isset($templatedata) ? $templatedata->title : '' }}}">
         </div>
     </div>
     <hr>
@@ -46,8 +46,8 @@
             <br/>
             <!-- template status -->
             <input type="hidden" name="status_hidden" class="status_hidden">
-            <div class="switch {{ $templatedata -> status == 'on' ? 'checked' : '' }}">
-                <input type="checkbox" class="btsp-check" name="website_mode_store" {{ $templatedata -> status == 'on' ? 'checked' : '' }}>
+            <div class="switch {{{ isset($templatedata->status ($templatedata->status == 'on')) ? 'checked' : '' }}}">
+                <input type="checkbox" class="btsp-check" name="website_mode_store" {{{ isset($templatedata->status ($templatedata->status == 'on')) ? 'checked' : '' }}}>
                 <span class="toggle toggle--round"></span>
             </div>
             <!-- /template status -->
