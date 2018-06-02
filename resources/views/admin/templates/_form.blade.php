@@ -46,10 +46,17 @@
             <br/>
             <!-- template status -->
             <input type="hidden" name="status_hidden" class="status_hidden">
-            <div class="switch {{{ isset($templatedata->status ($templatedata->status == 'on')) ? 'checked' : '' }}}">
-                <input type="checkbox" class="btsp-check" name="website_mode_store" {{{ isset($templatedata->status ($templatedata->status == 'on')) ? 'checked' : '' }}}>
+            @isset($templatedata->status)
+            <div class="switch {{ ($templatedata->status == 'on') ? 'checked' : '' }}">
+                <input type="checkbox" class="btsp-check" name="website_mode_store" {{ ($templatedata->status == 'on') ? 'checked' : '' }}>
                 <span class="toggle toggle--round"></span>
             </div>
+            @else
+            <div class="switch">
+                <input type="checkbox" class="btsp-check" name="website_mode_store">
+                <span class="toggle toggle--round"></span>
+            </div>
+            @endisset
             <!-- /template status -->
         </div>
         <div class="form-field">
@@ -59,7 +66,7 @@
             <br>
             <br>
             <!-- previewed image -->
-            <img class="image-previewer" src="{{ asset('storage/images/'.$templatedata->featured_image) }}">
+            <img class="image-previewer" @isset($templatedata) src="{{ asset('storage/images/'.$templatedata->featured_image) }}" @endisset>
             <div class="buttons-top fleft">
                 <input type="file" name="upload_banner" id="upload_photo" class="hidden">
                 <a href="#" class="btn btn-default upload" data-target="upload_photo">Enviar Ficheiro</a>
