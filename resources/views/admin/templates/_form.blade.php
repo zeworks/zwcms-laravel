@@ -48,12 +48,12 @@
             <input type="hidden" name="status_hidden" class="status_hidden">
             @isset($templatedata->status)
             <div class="switch {{ ($templatedata->status == 'on') ? 'checked' : '' }}">
-                <input type="checkbox" class="btsp-check" name="website_mode_store" {{ ($templatedata->status == 'on') ? 'checked' : '' }}>
+                <input type="checkbox" class="btsp-check" name="status_item" {{ ($templatedata->status == 'on') ? 'checked' : '' }}>
                 <span class="toggle toggle--round"></span>
             </div>
             @else
             <div class="switch">
-                <input type="checkbox" class="btsp-check" name="website_mode_store">
+                <input type="checkbox" class="btsp-check" name="status_item">
                 <span class="toggle toggle--round"></span>
             </div>
             @endisset
