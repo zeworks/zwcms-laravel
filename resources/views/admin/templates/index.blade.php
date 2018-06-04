@@ -6,6 +6,7 @@
                 <!-- page title -->
                 <h2 class="page-title">{{ __('Páginas') }}</h2>
                 <!-- page title ends -->
+                <span>Aqui define o banner, titulo e texto (opcional) que quer mostrar no bloco principal na página.</span>
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
                     <a href="{{ route('template_new' )}}" title="add page" class="btn btn-primary">

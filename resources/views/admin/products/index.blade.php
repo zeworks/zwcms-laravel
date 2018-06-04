@@ -6,6 +6,7 @@
                 <!-- page title -->
                 <h2 class="page-title">{{ __('Produtos') }}</h2>
                 <!-- page title ends -->
+                <span>Seus produtos</span>
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
                     <a href="{{ route('product_new' )}}" title="add page" class="btn btn-primary">

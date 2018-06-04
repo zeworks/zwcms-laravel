@@ -113,9 +113,9 @@
                 </li>
                 <!-- banners -->
                 <li class="{{ Request::is('admin/banners*') ? 'active' : '' }}">
-                    <a href="{{ route('banners') }}" class="aside__link" title="{{ __('Banners') }}">
+                    <a href="{{ route('banners') }}" class="aside__link" title="{{ __('Banners Home') }}">
                         <i class="fas fa-images"></i>
-                        {{ __('Banners') }}
+                        {{ __('Banners Home') }}
                     </a>
                 </li>
                 <!-- templates -->

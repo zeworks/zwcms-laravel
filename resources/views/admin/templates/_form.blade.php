@@ -3,7 +3,7 @@
     <div class="table-items">
         <div class="form-field clearfix">
             <label for="title">Nome da Página</label>
-            <input type="text" name="title" id="title" class="form-control" required value="{{{ isset($templatedata) ? $templatedata->title : '' }}}">
+            <input type="text" name="title" id="title" class="form-control" required value="{{{ isset($templatedata->title) ? $templatedata->title : '' }}}">
         </div>
     </div>
     <hr>
@@ -61,12 +61,12 @@
         </div>
         <div class="form-field">
             <span>Imagem de Destaque
-                <strong>1920x520</strong>
+                <strong>1920x900</strong>
             </span>
             <br>
             <br>
             <!-- previewed image -->
-            <img class="image-previewer" @isset($templatedata) src="{{ asset('storage/images/'.$templatedata->featured_image) }}" @endisset>
+            <img class="image-previewer" @isset($templatedata->featured_image) src="{{ asset('storage/images/'.$templatedata->featured_image) }}" @endisset>
             <div class="buttons-top fleft">
                 <input type="file" name="upload_banner" id="upload_photo" class="hidden">
                 <a href="#" class="btn btn-default upload" data-target="upload_photo">Enviar Ficheiro</a>

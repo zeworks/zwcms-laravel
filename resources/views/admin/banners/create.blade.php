@@ -11,8 +11,12 @@
                 <h2 class="page-title">{{ __('Adicionar Banner')}}</h2>
                 <!-- page title ends -->
                 <!-- form to add banner -->
-                @include('admin.banners._form')
+                <form action="{{ route('banner_insert') }}" method="post" class="row form" enctype="multipart/form-data">
+                    @csrf
+                    @include('admin.banners._form')
+                </form>
                 <!-- form to add banner ends -->
+
             </div>
         </div>
     </div>

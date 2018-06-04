@@ -6,6 +6,7 @@
                 <!-- page title -->
                 <h2 class="page-title">{{ __('Blog') }}</h2>
                 <!-- page title ends -->
+                <span>Aqui estão suas publicações mais recentes do seu blog</span>
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
                     <a href="{{ route('blog_new' )}}" title="add post" class="btn btn-primary">

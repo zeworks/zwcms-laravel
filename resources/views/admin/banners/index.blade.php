@@ -4,8 +4,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <!-- page title -->
-                <h2 class="page-title">{{ __('Banners') }}</h2>
+                <h2 class="page-title">{{ __('Banners Homepage') }}</h2>
                 <!-- page title ends -->
+                <span>Os seguintes banners serão apresentados na <strong>Homepage</strong></span>
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
                     <a href="{{ route('banner_new' )}}" title="add banner" class="btn btn-primary">
@@ -15,25 +16,24 @@
                 </div>
                 <!-- button to add new banner ends -->
                 <div class="table-items">
-                    <h3 class="strong">{{ __('Banners') }}</h3>
                     <div class="row">
+                        @foreach($banners as $banner)
                         <!-- banner item  -->
                         <div class="col-lg-3 col-sm-6 col-md-4 col-xs-12">
-                            <div class="cart-thumb cart-thumb--detail" style="background-image: url('https://dummyimage.com/398x200/f3f3f3/000')">
+                            <div class="cart-thumb cart-thumb--detail" style="background-image: url({{isset($banner->banner_image) ? asset('storage/images/'.$banner->banner_image) : 'https://dummyimage.com/398x200/f3f3f3/000'}})">
                                 <div class="cart-thumb__info">
                                     <h4>
-                                        Banner Title
+                                        {{$banner->banner_title}}
                                     </h4>
-                                    <p>
-                                        Banner text
-                                    </p>
+                                    {!! $banner->banner_description !!}
                                     <div class="cart-thumb__actions">
-                                        <form action="" method="post">
+                                        <form action="{{ route('banner_delete', ['id' => $banner->id]) }}" method="post">
+                                        @csrf
                                             <button type="submit" name="remove_banner" title="Remove">
                                                 <i class="far fa-trash-alt"></i>
                                             </button>
                                         </form>
-                                        <a href="{{ route('banner_edit') }}" title="Edit">
+                                        <a href="{{ route('banner_edit', ['id' => $banner->id]) }}" title="Edit">
                                             <i class="far fa-edit"></i>
                                         </a>
                                     </div>
@@ -41,32 +41,7 @@
                             </div>
                         </div>
                         <!-- banner item ends -->
-                        <!-- banner item  -->
-                        <div class="col-lg-3 col-sm-6 col-md-4 col-xs-12">
-                            <div class="cart-thumb cart-thumb--detail" style="background-image: url('https://dummyimage.com/398x200/f3f3f3/000')">
-                                <div class="cart-thumb__info">
-                                    <h4>
-                                        Banner Title
-                                    </h4>
-                                    <p>
-                                        Banner text
-                                    </p>
-                                    <div class="cart-thumb__actions">
-                                        <form action="" method="post">
-                                            <button type="submit" name="remove_banner" title="Remove">
-                                                <i class="far fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                        <form action="" method="post">
-                                            <button type="submit" name="edit_banner" title="Edit">
-                                                <i class="far fa-edit"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- banner item ends -->
+                        @endforeach
                     </div>
                 </div>
             </div>

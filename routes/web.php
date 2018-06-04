@@ -47,7 +47,14 @@ Route::prefix('admin')->group(function () {
     // rota com prefixo banners
     Route::prefix('banners')->group(function () {
         Route::get('new', 'BannersController@newBanner')->name('banner_new');
-        Route::get('edit', 'BannersController@editBanner')->name('banner_edit');
+        Route::get('edit/{id}', 'BannersController@editBanner')->name('banner_edit');
+
+        // para criar novo banner
+        Route::post('new', 'BannersController@insertNewBanner')->name('banner_insert');
+        // para editar o banner
+        Route::post('edit/{id}', 'BannersController@updateBanner')->name('banner_update');
+        // para eliminar o banner
+        Route::post('del/{id}', 'BannersController@deleteBanner')->name('banner_delete');
     });
 
     // rota com prefixo templates
@@ -57,7 +64,9 @@ Route::prefix('admin')->group(function () {
         
         // para criar novo template
         Route::post('new', 'TemplateController@insertNewTemplate')->name('template_insert');
+        // para editar o template
         Route::post('edit/{id}', 'TemplateController@updateTemplate')->name('template_update');
+        // para eliminar o template
         Route::post('del/{id}', 'TemplateController@deleteTemplate')->name('template_delete');
         
     });

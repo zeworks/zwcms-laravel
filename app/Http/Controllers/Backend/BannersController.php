@@ -26,29 +26,79 @@ class BannersController extends Controller
         // to include website settings
         $websitesettings = WebsiteSettings::get();
 
-        $websiteBanners = Banners::get();
+        $banners = Banners::get();
         
         // returns to the view with the website settings compacted
         return view('admin.banners.index', compact('websitesettings','banners'));
     }
 
-    public function newBanner(){
+    function newBanner(){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
         
-        //to get templates to list on selectbox
-        $templates = Templates::get();
-        
-        return view('admin.banners.create', compact('websitesettings','templates'));
+        return view('admin.banners.create', compact('websitesettings'));
     }
 
-    public function editBanner(){
+    function insertNewBanner(Request $request){
+
+        if($request->file('upload_banner')){
+            $filename = $request->file('upload_banner')->getClientOriginalName();
+            $path = $request->file('upload_banner')->storeAs('public/images',$filename);
+            $data = [
+                "banner_title" => $request -> input('title'),
+                "banner_description" => $request -> input('editor_content'),
+                "banner_image" => $filename
+            ];
+        }else{
+            // if there is not a file
+            $data = [
+                "banner_title" => $request -> input('title'),
+                "banner_description" => $request -> input('editor_content')
+            ];
+        }
+    
+        Banners::insert($data);
+
+        return redirect()->back()->with("message","Inserido com sucesso!");
+
+    }
+
+    function editBanner($id){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
 
-        //to get templates to list on selectbox
-        $templates = Templates::get();
+        $banners = Banners::find($id);
         
-        return view('admin.banners.edit', compact('websitesettings','templates'));
+        return view('admin.banners.edit', compact('websitesettings','banners'));
+    }
+
+    function updateBanner(Request $request,$id){
+        // if files exists
+        if($request->file('upload_banner')){
+            $filename = $request->file('upload_banner')->getClientOriginalName();
+            $path = $request->file('upload_banner')->storeAs('public/images',$filename);
+            $data = [
+                "banner_title" => $request -> input('title'),
+                "banner_description" => $request -> input('editor_content'),
+                "banner_image" => $filename
+            ];
+        }else{
+            // if there is not a file
+            $data = [
+                "banner_title" => $request -> input('title'),
+                "banner_description" => $request -> input('editor_content')
+            ];
+        }
+
+        Banners::where('id',$id)->update($data);
+        return redirect()->back()->with("message","Alterado com sucesso!");
+    }
+
+    function deleteBanner($id){
+        $banners = Banners::find($id);
+        $banners->delete();     
+        
+        return redirect()->back()->with("message","Removido com sucesso!");
+        
     }
 }
