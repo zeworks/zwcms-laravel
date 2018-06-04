@@ -42,13 +42,22 @@ class TemplateController extends Controller
 
     function insertNewTemplate(Request $request){
 
-        $filename = $request->file('upload_banner')->getClientOriginalName();
-        $path = $request->file('upload_banner')->storeAs('public/images',$filename);
-        $data = [
-            "title" => $request -> input("title"),
-            "status" => $request -> input("status_item"),
-            "featured_image" => $filename
-        ];
+        // if files exists
+        if($request->file('upload_banner')){
+            $filename = $request->file('upload_banner')->getClientOriginalName();
+            $path = $request->file('upload_banner')->storeAs('public/images',$filename);
+            $data = [
+                "title" => $request -> input("title"),
+                "status" => $request -> input("status_item"),
+                "featured_image" => $filename
+            ];
+        }else{
+            // if there is not a file
+            $data = [
+                "title" => $request -> input("title"),
+                "status" => $request -> input("status_item")     
+            ];
+        }
 
         Templates::insert($data);
 
@@ -64,5 +73,35 @@ class TemplateController extends Controller
 
         // returns to the view with the website settings compacted
         return view('admin.templates.edit', compact('websitesettings','templatedata'));
+    }
+
+    function updateTemplate(Request $request,$id){
+        // if files exists
+        if($request->file('upload_banner')){
+            $filename = $request->file('upload_banner')->getClientOriginalName();
+            $path = $request->file('upload_banner')->storeAs('public/images',$filename);
+            $data = [
+                "title" => $request -> input("title"),
+                "status" => $request -> input("status_item"),
+                "featured_image" => $filename
+            ];
+        }else{
+            // if there is not a file
+            $data = [
+                "title" => $request -> input("title"),
+                "status" => $request -> input("status_item")     
+            ];
+        }
+
+        Templates::where('id',$id)->update($data);
+        return redirect()->back()->with("message","Alterado com sucesso!");
+    }
+
+    function deleteTemplate($id){
+        $templatedata = Templates::find($id);
+        $templatedata->delete();     
+        
+        return redirect()->back()->with("message","Removido com sucesso!");
+        
     }
 }

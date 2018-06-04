@@ -11,7 +11,7 @@
                 <h2 class="page-title">{{ __('Editar Página')}}</h2>
                 <!-- page title ends -->
                 <!-- form to add template -->
-                <form action="" class="row form" method="post" enctype="multipart/form-data">
+                <form action="{{route('template_update',['id' => $templatedata->id])}}" class="row form" method="post" enctype="multipart/form-data">
                     @include('admin.templates._form')
                 </form>
                 <!-- form to add template ends -->

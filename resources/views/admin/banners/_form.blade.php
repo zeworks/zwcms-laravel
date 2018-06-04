@@ -20,8 +20,9 @@
                 <span>Página</span>
                 <!-- templates -->
                 <select name="page_template" id="page_template" class="form-control">
-                    <?php //get_templates(); ?>
-                    <!-- end templates -->
+                    @foreach($templates as $template)
+                        <option value="{{$template->id}}">{{$template->title}}</option>
+                    @endforeach
                 </select>
             </div>
             <br>

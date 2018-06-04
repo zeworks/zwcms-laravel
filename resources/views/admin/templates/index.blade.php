@@ -58,9 +58,8 @@
                                 @endif
                             </td>
                             <td class="last-item-table">
-                                <form action="" method="post">
+                                <form action="{{ route('template_delete',['id' => $template->id]) }}" method="post">
                                     @csrf
-                                    <input type="hidden" class="form-control" name="id_product" value="{{$template->id}}">
                                     <button type="submit" name="remove_publication_btn" class="link" title="Remover">
                                         <i class="fa fa-trash"></i>
                                     </button>

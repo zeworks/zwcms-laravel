@@ -57,6 +57,9 @@ Route::prefix('admin')->group(function () {
         
         // para criar novo template
         Route::post('new', 'TemplateController@insertNewTemplate')->name('template_insert');
+        Route::post('edit/{id}', 'TemplateController@updateTemplate')->name('template_update');
+        Route::post('del/{id}', 'TemplateController@deleteTemplate')->name('template_delete');
+        
     });
 
     // rota com prefixo products

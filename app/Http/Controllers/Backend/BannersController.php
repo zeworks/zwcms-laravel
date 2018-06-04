@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\WebsiteSettings;
 use App\Http\Controllers\Controller;
 use App\Banners;
+use App\Templates;
+
 
 
 class BannersController extends Controller
@@ -33,14 +35,20 @@ class BannersController extends Controller
     public function newBanner(){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
-        // to add new banner
         
-        return view('admin.banners.create', compact('websitesettings'));
+        //to get templates to list on selectbox
+        $templates = Templates::get();
+        
+        return view('admin.banners.create', compact('websitesettings','templates'));
     }
 
     public function editBanner(){
         // to include website settings
         $websitesettings = WebsiteSettings::get();
-        return view('admin.banners.edit', compact('websitesettings'));
+
+        //to get templates to list on selectbox
+        $templates = Templates::get();
+        
+        return view('admin.banners.edit', compact('websitesettings','templates'));
     }
 }
