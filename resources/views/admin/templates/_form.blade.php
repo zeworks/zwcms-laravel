@@ -30,6 +30,12 @@
                         <label for="desc_bloc_item_1">Descrição do Bloco</label>
                         <textarea name="desc_bloc_item" id="desc_bloc_item_1" class="text-editor"></textarea>
                     </div>
+                    <br>
+                    <div class="buttons-top fleft">
+                        <img class="image-previewer">
+                        <input type="file" name="upload_photo_1" id="upload_photo_1" class="hidden upload_photo">
+                        <a href="#" class="btn btn-default upload" data-target="upload_photo_1">Enviar Ficheiro</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,8 +51,7 @@
             <br/>
             <br/>
             <!-- template status -->
-            <input type="hidden" name="status_hidden" class="status_hidden">
-            @isset($templatedata->status)
+            <input type="hidden" name="status_hidden" class="status_hidden"> @isset($templatedata->status)
             <div class="switch {{ ($templatedata->status == 'on') ? 'checked' : '' }}">
                 <input type="checkbox" class="btsp-check" name="status_item" {{ ($templatedata->status == 'on') ? 'checked' : '' }}>
                 <span class="toggle toggle--round"></span>
@@ -66,9 +71,9 @@
             <br>
             <br>
             <!-- previewed image -->
-            <img class="image-previewer" @isset($templatedata->featured_image) src="{{ asset('storage/images/'.$templatedata->featured_image) }}" @endisset>
             <div class="buttons-top fleft">
-                <input type="file" name="upload_banner" id="upload_photo" class="hidden">
+                <img class="image-previewer" @isset($templatedata->featured_image) src="{{ asset('storage/images/'.$templatedata->featured_image) }}" @endisset>
+                <input type="file" name="upload_photo" id="upload_photo" class="hidden upload_photo">
                 <a href="#" class="btn btn-default upload" data-target="upload_photo">Enviar Ficheiro</a>
             </div>
         </div>

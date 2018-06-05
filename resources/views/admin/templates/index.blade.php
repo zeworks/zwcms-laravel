@@ -40,7 +40,9 @@
                         <tr class="item-table">
                             <td>
                                 <a href="{{ route('template_edit',['id' => $template->id]) }}" class="go-back">
-                                    <img src="{{ asset('storage/images/'.$template->featured_image) }}" class="rounded" width="40" height="40" alt="template image {{$template->id}}">
+                                @isset($template->featured_image)
+                                <img src="{{ asset('storage/images/'.$template->featured_image) }}" class="rounded" width="40" height="40" alt="template image {{$template->id}}">
+                                @endisset
                                 </a>
                             </td>
                             <td>

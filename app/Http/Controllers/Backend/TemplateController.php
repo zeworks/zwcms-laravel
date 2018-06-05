@@ -43,9 +43,9 @@ class TemplateController extends Controller
     function insertNewTemplate(Request $request){
 
         // if files exists
-        if($request->file('upload_banner')){
-            $filename = $request->file('upload_banner')->getClientOriginalName();
-            $path = $request->file('upload_banner')->storeAs('public/images',$filename);
+        if($request->file('upload_photo')){
+            $filename = $request->file('upload_photo')->getClientOriginalName();
+            $path = $request->file('upload_photo')->storeAs('public/images',$filename);
             $data = [
                 "title" => $request -> input("title"),
                 "status" => $request -> input("status_item"),
@@ -77,9 +77,9 @@ class TemplateController extends Controller
 
     function updateTemplate(Request $request,$id){
         // if files exists
-        if($request->file('upload_banner')){
-            $filename = $request->file('upload_banner')->getClientOriginalName();
-            $path = $request->file('upload_banner')->storeAs('public/images',$filename);
+        if($request->file('upload_photo')){
+            $filename = $request->file('upload_photo')->getClientOriginalName();
+            $path = $request->file('upload_photo')->storeAs('public/images',$filename);
             $data = [
                 "title" => $request -> input("title"),
                 "status" => $request -> input("status_item"),

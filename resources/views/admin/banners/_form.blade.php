@@ -22,9 +22,9 @@
             <br>
             <br>
             <!-- previewed image -->
-            <img class="image-previewer" @isset($banners->banner_image) src="{{ asset('storage/images/'.$banners->banner_image) }}" @endisset>
             <div class="buttons-top fleft">
-                <input type="file" name="upload_banner" id="upload_photo" class="hidden">
+                <img class="image-previewer" @isset($banners->banner_image) src="{{ asset('storage/images/'.$banners->banner_image) }}" @endisset>
+                <input type="file" name="upload_banner" id="upload_photo" class="hidden upload_photo">
                 <a href="#" class="btn btn-default upload" data-target="upload_photo">Enviar Ficheiro</a>
             </div>
         </div>
