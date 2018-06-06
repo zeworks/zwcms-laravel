@@ -8,6 +8,7 @@ use App\WebsiteSettings;
 use App\ProductImages;
 use App\Products;
 use App\Images;
+use Illuminate\Support\Str;
 
 class ProductsController extends Controller
 {
@@ -48,6 +49,7 @@ class ProductsController extends Controller
 
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item"),
                 "description" => $request -> input('desc_product'),
                 "details" => $request -> input('detail_product'),
@@ -62,6 +64,7 @@ class ProductsController extends Controller
             // if there is not a file
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item"),
                 "description" => $request -> input('desc_product'),
                 "details" => $request -> input('detail_product'),
@@ -74,12 +77,13 @@ class ProductsController extends Controller
         }
 
         $productCreated = Products::create($data)->id;
-        
-        foreach($request -> input('addImagesIDs') as $images){
-            ProductImages::create([
-                "product_id" => $productCreated,
-                "image_id" => $images
-            ]);
+        if( !empty($request -> input('addImagesIDs')) ){
+            foreach($request -> input('addImagesIDs') as $images){
+                ProductImages::create([
+                    "product_id" => $productCreated,
+                    "image_id" => $images
+                ]);
+            }
         }
 
         return redirect()->back()->with("message","Inserido com sucesso!");

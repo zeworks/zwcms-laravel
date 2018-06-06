@@ -33,6 +33,7 @@
                                 <!-- image if exist -->
                             </th>
                             <th>Produto</th>
+                            <th>Referência</th>
                             <th>Data de Registo</th>
                             <th>Estado</th>
                             <th></th>
@@ -49,7 +50,10 @@
                             <td>
                                 <a href="{{ route('product_edit',['id' => $product->id]) }}" class="go-back">{{$product->title}}</a>
                             </td>
-                            <td>12/05/2018</td>
+                            <td>
+                            <strong class="link">{{$product->reference}}</strong>
+                            </td>
+                            <td>{{$product->created_at}}</td>
                             <td>
                                 @if($product->status == 'on')
                                     <div class="status status--sucss">

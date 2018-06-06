@@ -1,6 +1,5 @@
 var $blocoItem = $(".bloc").html();
 
-
 //Chamar todas as funções relacionadas com tamanhos para tomarem alterações no resize
 function resizableElements(viewport) {
 
@@ -11,13 +10,19 @@ function resizableElements(viewport) {
   $(document).ready(function () {
     resizableElements(viewport);
     
-    $("#addImages").dropzone({ 
+    // dropzone
+    $("#addImages").dropzone({
       url: image_upload,
-      success: function(response){
-        $(".aditional-files").append('<input type="text" name="addImagesIDs[]" value="'+response.xhr.response+'">');
-      } 
+      addRemoveLinks: true,
+      success: function (response) {
+        $(".aditional-files").append('<input type="hidden" name="addImagesIDs[]" value="' + response.xhr.response + '">');
+      },
+      removedfile: function (file) {
+        var _ref;
+        return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+      }
     });
-    
+
     $("aside").css("padding-top", $("nav").outerHeight(true));
 
     $("aside ul li .aside__link").click(function () {
@@ -36,20 +41,16 @@ function resizableElements(viewport) {
       height: 200
     });
 
-    if($(".alert").is(":visible")){
-      setTimeout(function(){
-        $(".alert").fadeOut(1000, function(){
+    if ($(".alert").is(":visible")) {
+      setTimeout(function () {
+        $(".alert").fadeOut(1000, function () {
           $(this).remove();
         })
       }, 3000);
     }
 
-    $("body,html").on("change",".upload_photo", function () {
+    $("body,html").on("change", ".upload_photo", function () {
       readURL(this);
-    });
-
-    $('#upload_images').on('change', function () {
-      imagesPreview(this, '.aditional-images');
     });
 
     if ($(".alert").hasClass("active")) {
@@ -60,19 +61,19 @@ function resizableElements(viewport) {
 
     var bloc_item_count = $(".bloc").length;
     $(".btn-addBloc").click(function () {
-        bloc_item_count++;
-        // replace os IDs com um count e o numero do bloco no HTML
-        var $blocoItemNew = $blocoItem.replace(/\_1/g, '_' + bloc_item_count).replace(/ 1/g, '' + bloc_item_count);
-        // adicionar o HTML
-        $(this).parent().children(".bloc").append($blocoItemNew);
-        // inicializar o texteditor
-        $('.text-editor').summernote({
-          tabsize: 2,
-          height: 200
-        });
+      bloc_item_count++;
+      // replace os IDs com um count e o numero do bloco no HTML
+      var $blocoItemNew = $blocoItem.replace(/\_1/g, '_' + bloc_item_count).replace(/ 1/g, '' + bloc_item_count);
+      // adicionar o HTML
+      $(this).parent().children(".bloc").append($blocoItemNew);
+      // inicializar o texteditor
+      $('.text-editor').summernote({
+        tabsize: 2,
+        height: 200
+      });
     });
 
-    $(".btn-delBloc").click(function(){
+    $(".btn-delBloc").click(function () {
       $(this).parent().parent().remove();
       return false;
     })
@@ -133,7 +134,7 @@ function toggleItems() {
     }
   });
 
-  $("body,html").on("click",'.upload',function (e) {
+  $("body,html").on("click", '.upload', function (e) {
     var target = $(this).attr("data-target");
     $("#" + target).click();
     return false;
@@ -196,7 +197,7 @@ function toggleItems() {
 
 // for single image preview - featured image
 function readURL(input) {
-  
+
   if (input.files && input.files[0]) {
     var reader = new FileReader();
 
@@ -208,23 +209,6 @@ function readURL(input) {
   }
 }
 
-function imagesPreview(input, placeToInsertImagePreview) {
-
-  if (input.files) {
-    var filesAmount = input.files.length;
-
-    for (i = 0; i < filesAmount; i++) {
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        $($.parseHTML("<img class='aditional-image' width='200' height='200'>")).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-      }
-
-      reader.readAsDataURL(input.files[i]);
-    }
-  }
-
-};
 
 // previous history page
 function goBack() {
@@ -249,9 +233,34 @@ function generate_discount_code() {
   return "#" + text;
 }
 
-function insertColorProduct($color){
+function insertColorProduct($color) {
   var char = "#";
-  if($color.indexOf(char) > -1)
-    $(".available-colors").append("<span class='color-item' style='background-color: "+$color+"'></span>");
-    $(".colors-submited").val($(".colors-submited").val() + $color + ",");
+  if ($color.indexOf(char) > -1)
+    $(".available-colors").append("<span class='color-item' style='background-color: " + $color + "'></span>");
+  $(".colors-submited").val($(".colors-submited").val() + $color + ",");
 }
+
+$("body,html").on("click",".clean-colors", function(){
+  $(".available-colors").html('');
+  return false;
+});
+
+
+// function convertToSlug(str)
+// {
+//   str = str.replace(/^\s+|\s+$/g, ''); // trim
+//   str = str.toLowerCase();
+
+//   // remove accents, swap ñ for n, etc
+//   var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
+//   var to   = "aaaaaeeeeeiiiiooooouuuunc------";
+//   for (var i=0, l=from.length ; i<l ; i++) {
+//     str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+//   }
+
+//   str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+//     .replace(/\s+/g, '-') // collapse whitespace and replace by -
+//     .replace(/-+/g, '-'); // collapse dashes
+
+//   return str;
+// }

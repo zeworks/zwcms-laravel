@@ -8,7 +8,7 @@ use App\ProductImages;
 class Products extends Model
 {
     protected $fillable = [
-        'title','description','details','status','new_product','featured_image','reference','weight_product','size_product','colors'
+        'title','slug','description','details','status','new_product','featured_image','reference','weight_product','size_product','colors'
     ];
     
     public function Images(){

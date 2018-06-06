@@ -119,6 +119,7 @@
             <div class="table-items">
                 <p>
                     <strong>Cores do Produto</strong>
+                    <a href="#" class="link clean-colors fright">Limpar</a>
                 </p>
                 <br>
                 <div class="form-field">
@@ -137,7 +138,6 @@
             </div>
         </div>
     </div>
-    <br>
 </div>
 
 <div class="col-lg-3 col-sm-6 col-xs-12">
