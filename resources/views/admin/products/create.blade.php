@@ -11,7 +11,10 @@
                 <h2 class="page-title">{{ __('Adicionar Produto')}}</h2>
                 <!-- page title ends -->
                 <!-- form to add banner -->
-                @include('admin.products._form')
+                <form action="{{ route('product_insert') }}" method="post" class="row form" enctype="multipart/form-data">
+                    @csrf
+                    @include('admin.products._form')
+                </form>
                 <!-- form to add banner ends -->
             </div>
         </div>

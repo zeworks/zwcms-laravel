@@ -37,33 +37,40 @@
                             <th>Estado</th>
                             <th></th>
                         </tr>
+                        @foreach($blogs as $blog)
                         <tr class="item-table">
                             <td>
-                                <a href="{{ route('blog_edit') }}" class="go-back">
-                                    <img src="{{ asset('img/zwlogo.png') }}" class="rounded" width="40" height="40" alt="zwlogo.png">
+                                <a href="{{ route('blog_edit',['id' => $blog->id]) }}" class="go-back">
+                                @isset($blog->featured_image)
+                                <img src="{{ asset('storage/images/'.$blog->featured_image) }}" class="rounded" width="40" height="40" alt="blog image {{$blog->id}}">
+                                @endisset
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('blog_edit') }}" class="go-back">Título do Post</a>
+                                <a href="{{ route('blog_edit',['id' => $blog->id]) }}" class="go-back">{{$blog->title}}</a>
                             </td>
-                            <td>12/05/2018</td>
+                            <td>{{$blog->created_at}}</td>
                             <td>
-                                <div class="status status--sucss">
-                                    Activo
-                                </div>
-                                <div class="status status--warn">
-                                    Inactivo
-                                </div>
+                                @if($blog->status == 'on')
+                                    <div class="status status--sucss">
+                                        Activo
+                                    </div>
+                                @else
+                                    <div class="status status--warn">
+                                        Inactivo
+                                    </div>
+                                @endif
                             </td>
                             <td class="last-item-table">
-                                <form action="" method="post">
-                                    <input type="hidden" class="form-control" name="id_product" value="">
+                                <form action="{{ route('blog_delete',['id' => $blog->id]) }}" method="post">
+                                    @csrf
                                     <button type="submit" name="remove_publication_btn" class="link" title="Remover">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
                             </td>
                         </tr>
+                        @endforeach
                     </table>
                     <!-- templates list ends -->
                 </div>

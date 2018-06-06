@@ -10,7 +10,14 @@ function resizableElements(viewport) {
 (function ($, viewport) {
   $(document).ready(function () {
     resizableElements(viewport);
-
+    
+    $("#addImages").dropzone({ 
+      url: image_upload,
+      success: function(response){
+        $(".aditional-files").append('<input type="text" name="addImagesIDs[]" value="'+response.xhr.response+'">');
+      } 
+    });
+    
     $("aside").css("padding-top", $("nav").outerHeight(true));
 
     $("aside ul li .aside__link").click(function () {
@@ -246,4 +253,5 @@ function insertColorProduct($color){
   var char = "#";
   if($color.indexOf(char) > -1)
     $(".available-colors").append("<span class='color-item' style='background-color: "+$color+"'></span>");
+    $(".colors-submited").val($(".colors-submited").val() + $color + ",");
 }

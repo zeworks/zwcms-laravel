@@ -26,7 +26,7 @@
                     <br>
                     <br>
                     <!-- search ends -->
-                    <!-- templates list -->
+                    <!-- products list -->
                     <table class="table-items__table with--image">
                         <tr>
                             <th>
@@ -37,35 +37,42 @@
                             <th>Estado</th>
                             <th></th>
                         </tr>
+                        @foreach($products as $product)
                         <tr class="item-table">
                             <td>
-                                <a href="{{ route('product_edit') }}" class="go-back">
-                                    <img src="{{ asset('img/zwlogo.png') }}" class="rounded" width="40" height="40" alt="zwlogo.png">
+                                <a href="{{ route('product_edit',['id' => $product->id]) }}" class="go-back">
+                                @isset($product->featured_image)
+                                    <img src="{{ asset('storage/images/'.$product->featured_image) }}" class="rounded" width="40" height="40" alt="product image {{$product->id}}">
+                                @endisset
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('product_edit') }}" class="go-back">Nome do Template</a>
+                                <a href="{{ route('product_edit',['id' => $product->id]) }}" class="go-back">{{$product->title}}</a>
                             </td>
                             <td>12/05/2018</td>
                             <td>
-                                <div class="status status--sucss">
-                                    Activo
-                                </div>
-                                <div class="status status--warn">
-                                    Inactivo
-                                </div>
+                                @if($product->status == 'on')
+                                    <div class="status status--sucss">
+                                        Activo
+                                    </div>
+                                @else
+                                    <div class="status status--warn">
+                                        Inactivo
+                                    </div>
+                                @endif
                             </td>
                             <td class="last-item-table">
-                                <form action="" method="post">
-                                    <input type="hidden" class="form-control" name="id_product" value="">
+                                <form action="{{ route('product_delete',['id' => $product->id]) }}" method="post">
+                                    @csrf
                                     <button type="submit" name="remove_publication_btn" class="link" title="Remover">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
                             </td>
                         </tr>
+                        @endforeach
                     </table>
-                    <!-- templates list ends -->
+                    <!-- blog list ends -->
                 </div>
             </div>
         </div>

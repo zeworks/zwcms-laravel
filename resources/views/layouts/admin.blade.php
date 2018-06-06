@@ -198,7 +198,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
     <script src="{{ asset('js/matchHeight.js') }}"></script>
+    <script src="{{ asset('js/dropzone.js') }}"></script>
     <script src="{{ asset('js/functions.js') }}"></script>
+    <script>
+        var image_upload = '{{ route("upload_images") }}';
+    </script>
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
 

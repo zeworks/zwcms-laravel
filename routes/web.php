@@ -74,13 +74,29 @@ Route::prefix('admin')->group(function () {
     // rota com prefixo products
     Route::prefix('products')->group(function () {
         Route::get('new', 'ProductsController@newProduct')->name('product_new');
-        Route::get('edit', 'ProductsController@editProduct')->name('product_edit');
+        Route::get('edit/{id}', 'ProductsController@editProduct')->name('product_edit');
+
+        // para criar novo product
+        Route::post('new', 'ProductsController@insertNewProduct')->name('product_insert');
+        // para editar o product
+        Route::post('edit/{id}', 'ProductsController@updateProduct')->name('product_update');
+        // para eliminar o product
+        Route::post('del/{id}', 'ProductsController@deleteProduct')->name('product_delete');
+        
     });
 
     // rota com prefixo blog
     Route::prefix('blog')->group(function () {
         Route::get('new', 'BlogController@newBlog')->name('blog_new');
-        Route::get('edit', 'BlogController@editBlog')->name('blog_edit');
+        Route::get('edit/{id}', 'BlogController@editBlog')->name('blog_edit');
+
+        
+        // para criar novo post
+        Route::post('new', 'BlogController@insertNewBlog')->name('blog_insert');
+        // para editar o post
+        Route::post('edit/{id}', 'BlogController@updateBlog')->name('blog_update');
+        // para eliminar o post
+        Route::post('del/{id}', 'BlogController@deleteBlog')->name('blog_delete');
     });
 
     // rota com prefixo costumers
@@ -111,6 +127,10 @@ Route::prefix('admin')->group(function () {
     Route::prefix('shipping')->group(function () {
         Route::get('new', 'ShippingController@newShipping')->name('shipping_new');
         Route::get('edit', 'ShippingController@editShipping')->name('shipping_edit');
+    });
+
+    Route::prefix('ajax')->group(function () {
+        Route::post('upload_images', 'AjaxController@UploadImages')->name('upload_images');
     });
 
 });

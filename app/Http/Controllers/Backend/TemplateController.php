@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\BlocksController;
 
 use App\WebsiteSettings;
 use App\Templates;
+use App\Blocks;
+
 
 class TemplateController extends Controller
 {
@@ -59,7 +62,7 @@ class TemplateController extends Controller
             ];
         }
 
-        Templates::insert($data);
+        Templates::create($data);
 
         return redirect()->back()->with("message","Inserido com sucesso!");
     }

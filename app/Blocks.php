@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Banners extends Model
+class Blocks extends Model
 {
     protected $fillable = [
-        'banner_title','banner_description','banner_image'
+        'title','summary','description','image','template_id'
     ];  
 }

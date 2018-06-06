@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\WebsiteSettings;
 use App\Http\Controllers\Controller;
 use App\Banners;
-use App\Templates;
-
 
 
 class BannersController extends Controller
@@ -57,7 +55,7 @@ class BannersController extends Controller
             ];
         }
     
-        Banners::insert($data);
+        Banners::create($data);
 
         return redirect()->back()->with("message","Inserido com sucesso!");
 
