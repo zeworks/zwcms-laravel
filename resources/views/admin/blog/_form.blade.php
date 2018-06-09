@@ -18,14 +18,8 @@
             <strong>Imagens Adicionais</strong>
         </p>
         <br>
-        <div class="form-field">
-            <div class="row">
-                <div class="aditional-images"></div>
-            </div>
-            <div class="buttons-top fleft">
-                <input type="file" name="upload_images[]" id="upload_images" class="hidden" multiple>
-                <a href="#" class="link upload" data-target="upload_images">Enviar Ficheiros</a>
-            </div>
+        <div class="form-field aditional-files">
+            <div id="addImages" class="dropzone"></div>
         </div>
     </div>
 </div>

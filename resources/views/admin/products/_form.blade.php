@@ -31,7 +31,6 @@
                 </p>
                 <br>
                 <div class="form-field aditional-files">
-                    
                     <div id="addImages" class="dropzone"></div>
                 </div>
             </div>

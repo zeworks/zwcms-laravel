@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\WebsiteSettings;
+use App\BlogImages;
 use App\Blog;
+use App\Images;
 
 class BlogController extends Controller
 {
@@ -59,7 +61,16 @@ class BlogController extends Controller
             ];
         }
 
-        Blog::create($data);
+        $blogCreated = Blog::create($data)->id;
+
+        if( !empty($request -> input('addImagesIDs')) ){
+            foreach($request -> input('addImagesIDs') as $images){
+                BlogImages::create([
+                    "blog_id" => $blogCreated,
+                    "image_id" => $images
+                ]);
+            }
+        }
 
         return redirect()->back()->with("message","Inserido com sucesso!");
     }
