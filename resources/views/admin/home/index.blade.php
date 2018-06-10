@@ -88,9 +88,9 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <h2 class="page-title">
-                                {{ __('Mailing list')}}
+                                {{ __('Subscritores')}}
                                 <small class="caps">[{{ __('Total')}}:
-                                    <strong>2</strong>]</small>
+                                    <strong>1</strong>]</small>
                             </h2>
                             <p>Sua lista de emails permite que você entre em contato com clientes ou visitantes interessados
                                 no seu site. Chegar a eles com ofertas exclusivas ou atualizações sobre seus produtos.</p>
@@ -107,7 +107,7 @@
                                 <table class="table-items__table">
                                     <tr>
                                         <th>
-                                            Subscriber Email
+                                            Email do subscritor
                                         </th>
                                         <th>
                                             Date
