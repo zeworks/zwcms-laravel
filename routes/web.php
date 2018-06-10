@@ -26,16 +26,18 @@ Route::prefix('admin')->group(function () {
     Route::get('blog', 'BlogController@index')->name('blog');
     Route::get('discounts', 'DiscountsController@index')->name('discounts');
     Route::get('costumers', 'CostumersController@index')->name('costumers');
-    Route::get('notifications', 'NotificationsController@index')->name('notifications');
     Route::get('shipping', 'ShippingController@index')->name('shipping');
     Route::get('orders', 'OrdersController@index')->name('orders');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+    Route::get('notifications', 'NotificationsController@index')->name('notifications');
     
     // rota com prefixo settings
     Route::prefix('settings')->group(function () {
         Route::get('general', 'SettingsController@generalSettings')->name('general');
         Route::get('account', 'SettingsController@accountSettings')->name('account');
         Route::get('shipping', 'SettingsController@shippingSettings')->name('shipping_settings');
+        Route::get('notifications', 'SettingsController@NotificationsSettings')->name('notifications_settings');
+
 
         // para atualizar a informacao de definições gerais
         Route::post('general', 'SettingsController@updateWebsite')->name('settings_general_edit');

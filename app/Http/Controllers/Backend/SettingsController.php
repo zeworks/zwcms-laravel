@@ -94,4 +94,12 @@ class SettingsController extends Controller
         $websitesettings = WebsiteSettings::get();
         return view('admin.setting.shipping', compact('websitesettings'));
     }
+
+    // to costumize settings of notifications
+    public function NotificationsSettings(){
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.setting.notifications', compact('websitesettings'));
+    }
+
+    
 }

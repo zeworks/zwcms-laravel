@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use App\WebsiteSettings;
 
 class NotificationsController extends Controller
 {
@@ -23,14 +26,18 @@ class NotificationsController extends Controller
      */
     public function index()
     {
-        return view('admin.notifications.index');
+        $websitesettings = WebsiteSettings::get();
+
+        return view('admin.notifications.index', compact('websitesettings'));
     }
 
     public function newNotification(){
-        return view('admin.notifications.create');
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.notifications.create', compact('websitesettings'));
     }
 
     public function editNotification(){
-        return view('admin.notifications.edit');
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.notifications.edit', compact('websitesettings'));
     }
 }

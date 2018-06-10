@@ -164,13 +164,6 @@
                         {{ __('Encomendas') }}
                     </a>
                 </li>
-                <!-- notifications -->
-                <li class="{{ Request::is('admin/notifications*') ? 'active' : '' }}">
-                    <a href="{{ route('notifications') }}" class="aside__link" title="{{ __('Notificações') }}">
-                        <i class="fas fa-envelope"></i>
-                        {{ __('Notificações') }}
-                    </a>
-                </li>
                 <!-- shipping -->
                 <li class="{{ Request::is('admin/shipping*') ? 'active' : '' }}">
                     <a href="{{ route('shipping') }}" class="aside__link" title="{{ __('Envios') }}">
@@ -178,7 +171,14 @@
                         {{ __('Envios') }}
                     </a>
                 </li>
+                <!-- notifications -->
                 @endif
+                <li class="{{ Request::is('admin/notifications*') ? 'active' : '' }}">
+                    <a href="{{ route('notifications') }}" class="aside__link" title="{{ __('Notificações') }}">
+                        <i class="fas fa-envelope"></i>
+                        {{ __('Notificações') }}
+                    </a>
+                </li>
             </ul>
             <!-- settings -->
             <a title="Definições" href="{{ route('settings') }}" class="aside__link aside__link--absolute-bottom {{ Request::is('admin/settings*') ? 'active' : '' }}">

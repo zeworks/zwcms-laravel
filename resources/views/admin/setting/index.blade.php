@@ -56,6 +56,15 @@
                             </a>
                         </div>
                         @endif
+                        <div class="col-lg-3 col-sm-6 col-xs-12 settings_page__item">
+                            <a href="{{ route('notifications_settings') }}" class="settings_page__link">
+                                <i class="fas fa-envelope"></i>
+                                <div class="settings_page__item-text">
+                                    <span>{{ __('Notificações') }}</span>
+                                    <p>{{ __('Configure aqui suas notificações para seus clientes') }}</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

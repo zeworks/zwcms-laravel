@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use App\WebsiteSettings;
 
 class DiscountsController extends Controller
 {
@@ -23,14 +26,25 @@ class DiscountsController extends Controller
      */
     public function index()
     {
-        return view('admin.discounts.index');
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+
+        return view('admin.discounts.index', compact('websitesettings'));
     }
 
     public function newDiscount(){
-        return view('admin.discounts.create');
+
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+
+        return view('admin.discounts.create', compact('websitesettings'));
     }
 
     public function editDiscount(){
-        return view('admin.discounts.edit');
+
+        // to include website settings
+        $websitesettings = WebsiteSettings::get();
+
+        return view('admin.discounts.edit', compact('websitesettings'));
     }
 }
