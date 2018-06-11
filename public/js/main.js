@@ -9,7 +9,11 @@ function resizableElements(viewport) {
 (function ($, viewport) {
   $(document).ready(function () {
     resizableElements(viewport);
-    
+    $(".multiple").multiselect({
+      enableFiltering: true,
+      filterPlaceholder: 'Procurar',
+      includeSelectAllOption: true
+    });
     // dropzone
     $("#addImages").dropzone({
       url: image_upload,

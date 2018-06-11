@@ -11,7 +11,7 @@
                 <br>
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
-                    <a href="" title="add page" class="btn btn-primary">
+                    <a href="{{ route('notification_send') }}" title="add page" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
                         {{ __('Enviar Notificação') }}
                     </a>
@@ -32,7 +32,7 @@
                     <table class="table-items__table">
                         <tr>
                             <th>Nome da Notificação</th>
-                            <th>Destinatário</th>
+                            <th>Destinatário(s)</th>
                             <th>Data de Envio</th>
                             <th>Estado</th>
                         </tr>

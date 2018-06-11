@@ -7204,6 +7204,7 @@ tbody.collapse.in {
 /* line 127, bootstrap/bootstrap/_button-groups.scss */
 .btn .caret {
   margin-left: 0;
+  display: none;
 }
 
 /* line 131, bootstrap/bootstrap/_button-groups.scss */
