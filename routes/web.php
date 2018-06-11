@@ -43,8 +43,9 @@ Route::prefix('admin')->group(function () {
         Route::post('general', 'SettingsController@updateWebsite')->name('settings_general_edit');
         // para atualizar a informação do utilizador do BO;
         Route::post('account', 'SettingsController@updateAccountSettings')->name('settings_account_edit');
-    });
 
+
+    });
 
     // rota com prefixo banners
     Route::prefix('banners')->group(function () {
@@ -87,6 +88,12 @@ Route::prefix('admin')->group(function () {
         
     });
 
+    // rota com prefixo notifications
+    Route::prefix('settings/notifications')->group(function () {
+        Route::get('new', 'SettingsController@newNotification')->name('notification_new');
+        Route::get('edit', 'SettingsController@editNotification')->name('notification_edit');
+    });
+
     // rota com prefixo blog
     Route::prefix('blog')->group(function () {
         Route::get('new', 'BlogController@newBlog')->name('blog_new');
@@ -119,11 +126,7 @@ Route::prefix('admin')->group(function () {
         Route::get('edit', 'DiscountsController@editDiscount')->name('discount_edit');
     });
 
-    // rota com prefixo notifications
-    Route::prefix('notifications')->group(function () {
-        Route::get('new', 'NotificationsController@newNotification')->name('notification_new');
-        Route::get('edit', 'NotificationsController@editNotification')->name('notification_edit');
-    });
+    
 
     // rota com prefixo shipping
     Route::prefix('shipping')->group(function () {

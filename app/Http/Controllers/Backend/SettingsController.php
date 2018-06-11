@@ -98,7 +98,17 @@ class SettingsController extends Controller
     // to costumize settings of notifications
     public function NotificationsSettings(){
         $websitesettings = WebsiteSettings::get();
-        return view('admin.setting.notifications', compact('websitesettings'));
+        return view('admin.setting.notifications.index', compact('websitesettings'));
+    }
+
+    function newNotification(){
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.setting.notifications.create', compact('websitesettings'));
+    }
+
+    public function editNotification(){
+        $websitesettings = WebsiteSettings::get();
+        return view('admin.setting.notifications.edit', compact('websitesettings'));
     }
 
     

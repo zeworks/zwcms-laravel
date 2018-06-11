@@ -114,7 +114,9 @@ function toggleItems() {
   $("input").keydown(function () {
     $(".buttons-top-absolute").addClass("active");
   });
-
+  $("textarea").keydown(function () {
+    $(".buttons-top-absolute").addClass("active");
+  });
   $(".text-editor").keydown(function () {
     $(".buttons-top-absolute").addClass("active");
   });

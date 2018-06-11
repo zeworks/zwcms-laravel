@@ -10,22 +10,21 @@
                 <div class="buttons-top fright">
                     <a href="{{ route('notification_new' )}}" title="add page" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
-                        {{ __('Adicionar Notificação') }}
+                        {{ __('Criar Notificação') }}
                     </a>
                 </div>
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-lg-5">
-                        <h4 class="strong">Costumers notifications</h4>
-                        <small>These notifications are automatically sent out to the customer. Click on the notification template
-                            to edit the content.</small>
+                        <h4 class="strong">{{ __('Informações para os clientes')}}</h4>
+                        <small>Utilize este método para notificar seus clientes com novos produtos, etc.</small>
                     </div>
                     <div class="col-lg-7">
                         <div class="table-items">
                             <!-- costumers -->
                             <div class="form-field">
                                 <p>
-                                    <strong>Costumer</strong>
+                                    <strong>Cliente</strong>
                                 </p>
                                 <br>
                                 <table class="table-items__table">
@@ -61,6 +60,7 @@
                         </div>
                     </div>
                 </div>
+                @if($websitesettings[0]->website_mode_store)
                 <hr/>
                 <div class="row">
                     <div class="col-lg-5">
@@ -176,6 +176,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <hr/>
             </div>
         </div>

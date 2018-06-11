@@ -31,7 +31,7 @@ class NotificationsController extends Controller
         return view('admin.notifications.index', compact('websitesettings'));
     }
 
-    public function newNotification(){
+    function newNotification(){
         $websitesettings = WebsiteSettings::get();
         return view('admin.notifications.create', compact('websitesettings'));
     }

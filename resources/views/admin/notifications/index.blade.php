@@ -9,6 +9,14 @@
                 <span>Suas notificações enviadas para os seus subscritores</span>
                 <br>
                 <br>
+                <!-- button to add new banner -->
+                <div class="buttons-top fright">
+                    <a href="" title="add page" class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        {{ __('Enviar Notificação') }}
+                    </a>
+                </div>
+                <!-- button to add new banner ends -->
                 <div class="table-items">
                     <!-- search -->
                     <form method="post" action="" class="search search--users active">
