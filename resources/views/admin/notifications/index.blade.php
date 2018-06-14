@@ -1,4 +1,7 @@
 @extends('layouts.admin') @section('content')
+<div class="breadcrumb">
+    <span>{{ __('Notificações Enviadas')}}</span>
+</div>
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -7,8 +10,6 @@
                 <h2 class="page-title">{{ __('Notificações Enviadas') }}</h2>
                 <!-- page title ends -->
                 <span>Suas notificações enviadas para os seus subscritores</span>
-                <br>
-                <br>
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
                     <a href="{{ route('notification_send') }}" title="add page" class="btn btn-primary">

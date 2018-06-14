@@ -8,6 +8,7 @@
     </div>
     <hr>
     <h2 class="page-title">Blocos da Página</h2>
+    <br>
     <div class="table-items">
         <div class="bloc">
             <div class="bloc-item clearfix">

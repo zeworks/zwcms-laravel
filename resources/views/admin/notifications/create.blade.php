@@ -1,12 +1,13 @@
 @extends('layouts.admin') @section('content')
+<div class="breadcrumb">
+    <a href="{{ route('notifications') }}" class="go-back"><i class="fas fa-angle-left"></i> {{ __('Notificações') }}</a>
+    <span>\</span>
+    <span>{{ __('Enviar Notificação')}}</span>
+</div>
 <section class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <!-- button go back -->
-                <a href="{{ route('notifications') }}" class="go-back">
-                    <i class="fas fa-angle-left"></i> {{ __('Notificações') }}</a>
-                <!-- button go back ends -->
                 <!-- page title -->
                 <h2 class="page-title">{{ __('Enviar Notificação')}}</h2>
                 <!-- page title ends -->

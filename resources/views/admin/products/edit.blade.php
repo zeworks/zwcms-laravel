@@ -1,12 +1,13 @@
 @extends('layouts.admin') @section('content')
+<div class="breadcrumb">
+    <a href="{{ route('products') }}" class="go-back"><i class="fas fa-angle-left"></i> {{ __('Produtos') }}</a>
+    <span>\</span>
+    <span>{{ __('Editar Produto')}}</span>
+</div>
 <section class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <!-- button go back -->
-                <a href="{{ route('products') }}" class="go-back">
-                    <i class="fas fa-angle-left"></i> {{ __('Produtos') }}</a>
-                <!-- button go back ends -->
                 <!-- page title -->
                 <h2 class="page-title">{{ __('Editar Produto')}}</h2>
                 <!-- page title ends -->

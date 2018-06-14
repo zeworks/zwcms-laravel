@@ -71,11 +71,13 @@
             <!-- zwcms logo -->
             <img src="{{ asset('img/zwlogo.png') }}" width="40" height="40" class="rounded" alt="zwlogo.png">
             <!-- end zwcms logo -->
-            <a href="{{ url('/admin/home') }}">
-                <h1>{{ config('app.name') }}</h1>
-            </a>
-            <!-- end website name -->
             @auth
+            @foreach($websitesettings as $websitesetting)
+            <a href="{{ url('/admin/home') }}">
+                <h1>{{ $websitesetting->website_name }}</h1>
+            </a>
+            @endforeach
+            <!-- end website name -->
             <aside class="clearfix">
                 <!-- aside items -->
                 <ul class="clearfix">
@@ -143,14 +145,11 @@
                             <i class="fas fa-envelope"></i>
                         </a>
                     </li>
-                    <!-- settings -->
-                    <li class="{{ Request::is('admin/settings*') ? 'active' : '' }}">
-                        <a href="{{ route('settings') }}" class="aside__link" title="{{ __('Definições') }}">
-                            <i class="fas fa-cog"></i>
-                        </a>
-                    </li>
                 </ul>
             </aside>
+            <a href="{{ route('settings') }}" class="definitions-btn {{ Request::is('admin/settings*') ? 'active' : '' }}" title="{{ __('Definições') }}">
+                Definições
+            </a>
             <div class="user-top-bar">
                 <div class="user-top-bar__info">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"

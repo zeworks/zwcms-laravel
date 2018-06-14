@@ -1,13 +1,16 @@
 @extends('layouts.admin') @section('content')
+<div class="breadcrumb">
+    <a href="{{ route('settings') }}" class="go-back"><i class="fas fa-angle-left"></i> {{ __('Definições') }}</a>
+    <span>\</span>
+    <span>{{ __('Conta')}}</span>
+</div>
 <section class="main-content settings_page">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
-                <a href="{{ route('settings') }}" class="go-back">
-                    <i class="fas fa-angle-left"></i> {{ __('Definições') }}</a>
-                <h2 class="page-title">{{ __('Geral') }}</h2>
+            <div class="col-sm-12">
+                <h2 class="page-title">{{ __('Conta') }}</h2>
             </div>
-            <div class="col-xs-12 col-xs-offset-0 col-lg-10 col-lg-offset-1">
+            <div class="col-sm-12">
                 <form action="{{ route('settings_account_edit') }}" method="post" name="form_profile" class="table-items clearfix form form--profile" enctype="multipart/form-data">
                     @csrf
                     <div class="row">

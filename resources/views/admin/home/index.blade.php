@@ -11,6 +11,9 @@
         $time_text = "Bom dia";
     }
 ?>
+    <div class="breadcrumb">
+        <span>{{ __('Dashboard') }}</span>
+    </div>
     <div class="main-content dashboard">
         <div class="container-fluid">
             <div class="row">

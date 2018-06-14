@@ -1,4 +1,9 @@
 @extends('layouts.admin') @section('content')
+<div class="breadcrumb">
+    <a href="{{ route('settings') }}" class="go-back"><i class="fas fa-angle-left"></i> {{ __('Definições') }}</a>
+    <span>\</span>
+    <span>{{ __('Notificações')}}</span>
+</div>
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">

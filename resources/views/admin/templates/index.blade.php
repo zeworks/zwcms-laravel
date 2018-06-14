@@ -1,4 +1,7 @@
 @extends('layouts.admin') @section('content')
+<div class="breadcrumb">
+    <span>{{ __('Páginas')}}</span>
+</div>
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">

@@ -6,7 +6,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <p>Os seguintes banners serão apresentados na <strong>Homepage</strong></p>
+                <!-- page title -->
+                <h2 class="page-title">{{ __('Adicionar Banner')}}</h2>
+                <!-- page title ends -->
+                <p>Os seguintes banners serão apresentados na
+                    <strong>Homepage</strong>
+                </p>
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
                     <a href="{{ route('banner_new' )}}" title="add banner" class="btn btn-primary">
@@ -28,7 +33,7 @@
                                     {!! $banner->banner_description !!}
                                     <div class="cart-thumb__actions">
                                         <form action="{{ route('banner_delete', ['id' => $banner->id]) }}" method="post">
-                                        @csrf
+                                            @csrf
                                             <button type="submit" name="remove_banner" title="Remove">
                                                 <i class="far fa-trash-alt"></i>
                                             </button>

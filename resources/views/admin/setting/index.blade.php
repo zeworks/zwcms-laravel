@@ -1,5 +1,8 @@
 @extends('layouts.admin') 
 @section('content')
+<div class="breadcrumb">
+    <span>{{ __('Definições')}}</span>
+</div>
 <section class="main-content settings_page">
     <div class="container-fluid">
         <div class="row">

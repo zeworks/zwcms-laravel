@@ -1,10 +1,13 @@
 @extends('layouts.admin') @section('content')
+<div class="breadcrumb">
+    <a href="{{ route('settings') }}" class="go-back"><i class="fas fa-angle-left"></i> {{ __('Definições') }}</a>
+    <span>\</span>
+    <span>{{ __('Geral')}}</span>
+</div>
 <section class="main-content settings_page">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <a href="{{ route('settings') }}" class="go-back">
-                    <i class="fas fa-angle-left"></i> {{ __('Definições') }}</a>
                 <h2 class="page-title">{{ __('Geral') }}</h2>
             </div>
             <div class="col-xs-12">
