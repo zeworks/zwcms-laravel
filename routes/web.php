@@ -89,7 +89,13 @@ Route::prefix('admin')->group(function () {
     // rota com prefixo settings/notifications
     Route::prefix('settings/notifications')->group(function () {
         Route::get('new', 'SettingsController@newNotification')->name('notification_new');
-        Route::get('edit', 'SettingsController@editNotification')->name('notification_edit');
+        Route::get('edit/{id}', 'SettingsController@editNotification')->name('notification_edit');
+
+        // para criar um template de notificação
+        Route::post('new', 'SettingsController@createNotification')->name('notification_create');
+        // para editar um template de notificação
+        Route::post('edit/{id}', 'SettingsController@updateNotification')->name('notification_update');
+        
     });
 
     Route::prefix('notifications')->group(function () {

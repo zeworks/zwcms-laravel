@@ -11,7 +11,7 @@
                 <h2 class="page-title">{{ __('Adicionar Notificação')}}</h2>
                 <!-- page title ends -->
                 <!-- form to add banner -->
-                <form action="" method="post" class="row form" enctype="multipart/form-data">
+                <form action="{{ route('notification_create')}}" method="post" class="row form" enctype="multipart/form-data">
                     @csrf
                     @include('admin.setting.notifications._form')
                 </form>

@@ -1,12 +1,12 @@
 @extends('layouts.admin') @section('content')
+<div class="breadcrumb">
+    <span>{{ __('Banners Homepage') }}</span>
+</div>
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <!-- page title -->
-                <h2 class="page-title">{{ __('Banners Homepage') }}</h2>
-                <!-- page title ends -->
-                <span>Os seguintes banners serão apresentados na <strong>Homepage</strong></span>
+                <p>Os seguintes banners serão apresentados na <strong>Homepage</strong></p>
                 <!-- button to add new banner -->
                 <div class="buttons-top fright">
                     <a href="{{ route('banner_new' )}}" title="add banner" class="btn btn-primary">

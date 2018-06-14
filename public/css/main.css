@@ -3507,7 +3507,7 @@ a {
 }
 /* line 52, bootstrap/bootstrap/_scaffolding.scss */
 a:hover, a:focus {
-  color: #015662;
+  color: #00caca;
   text-decoration: underline;
 }
 /* line 58, bootstrap/bootstrap/_scaffolding.scss */
@@ -10623,42 +10623,6 @@ body {
   -moz-transition: all 300ms ease;
   transition: all 300ms ease;
 }
-/* line 9, base/_base.scss */
-body.content-collapse .main-content {
-  padding-left: 60px;
-}
-@media (max-width: 767px) {
-  /* line 9, base/_base.scss */
-  body.content-collapse .main-content {
-    padding-left: 0px;
-  }
-}
-/* line 17, base/_base.scss */
-body.content-collapse aside {
-  width: 40px;
-}
-@media (max-width: 768px){
-  body.content-collapse aside{
-    width: 0;
-  }
-}
-/* line 20, base/_base.scss */
-body.content-collapse aside .aside__link {
-  padding-left: 7px;
-}
-
-body.content-collapse aside .aside__link i{
-  text-align: center;
-}
-/* line 25, base/_base.scss */
-body.content-collapse .menu i {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
 /* line 31, base/_base.scss */
 a {
   text-decoration: none;
@@ -10669,7 +10633,7 @@ a {
 }
 /* line 36, base/_base.scss */
 a:hover, a:focus {
-  color: #FFFFFF;
+  color: #00caca;
   text-decoration: none;
   outline: 0;
 }
@@ -10727,6 +10691,12 @@ ul, menu, dir {
   padding: 0;
   margin: 0;
 }
+ul,
+ul > *{
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
 
 /* line 88, base/_base.scss */
 ul.bullet-list {
@@ -10757,19 +10727,10 @@ small, .small {
 
 /* line 109, base/_base.scss */
 .main-content {
-  padding-top: 40px;
-  padding-right: 20px;
-  padding-left: 190px;
+  padding: 40px 20px;
   -webkit-transition: padding-left 100ms ease;
   -moz-transition: padding-left 100ms ease;
   transition: padding-left 100ms ease;
-}
-@media (max-width: 767px) {
-  /* line 109, base/_base.scss */
-  .main-content {
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
 /* line 119, base/_base.scss */
 .main-content.dashboard h3 strong {
@@ -10923,25 +10884,18 @@ small, .small {
 
 /* line 176, base/_base.scss */
 .page-title {
-  font-weight: 400;
-  font-size: 50px;
+  font-weight: 800;
+  font-size: 23px;
   color: #262626;
-  margin: 20px 0;
+  margin: 0;
+  text-transform: uppercase;
 }
-@media (max-width: 767px) {
-  /* line 176, base/_base.scss */
-  .page-title {
-    font-size: 40px;
-    margin: 10px 0;
-  }
-}
-
 /* line 188, base/_base.scss */
 .sub-title {
   font-weight: 400;
-  font-size: 25px;
+  font-size: 19px;
   color: #262626;
-  margin: 20px 0;
+  margin: 0;
 }
 
 /* line 195, base/_base.scss */
@@ -11370,9 +11324,9 @@ nav {
   right: auto;
   bottom: auto;
   left: 0;
-  height: 40px;
+  height: 50px;
   width: 100%;
-  background-color: #1e5598;
+  background-color: #313a45;
   padding: 5px;
   display: flex;
   align-items: center;
@@ -11386,6 +11340,11 @@ nav img {
 /* line 13, modules/_nav.scss */
 nav h1 {
   font-size: 20px;
+  color: #fff;
+}
+
+nav h1:hover{
+  color: #00caca;
 }
 /* line 16, modules/_nav.scss */
 nav img {
@@ -11543,54 +11502,35 @@ nav .user-top-bar__links li a {
 
 /* line 119, modules/_nav.scss */
 aside {
-  position: fixed;
-  left: 0;
-  background-color: #192133;
+  position: relative;
   height: 100%;
-  width: 170px;
-  -webkit-transition: width 100ms ease;
-  -moz-transition: width 100ms ease;
-  transition: width 100ms ease;
-  overflow: hidden;
-  z-index: 11;
-}
-@media (max-width: 767px){
-  aside{
-    width: 80%;
-  }
+  float: left;
 }
 /* line 127, modules/_nav.scss */
 aside li.active .aside__link,
 aside .aside__link.active {
-  color: #FFFFFF;
-  background-color: #0a0d14;
+  color: #00caca;
 }
 /* line 132, modules/_nav.scss */
 aside .aside__link {
-  display: flex;
-  align-items: flex-start;
-  background-color: transparent;
-  width: 170px;
-  padding: 10px;
-  margin: 1px 0;
+  padding: 10px 0;
   -webkit-transition: background-color 200ms ease, padding-left 200ms ease;
   -moz-transition: background-color 200ms ease, padding-left 200ms ease;
   transition: background-color 200ms ease, padding-left 200ms ease;
-}
-@media (max-width: 767px){
-  aside .aside__link{
-    width: 100%;
-  }
-}
-/* line 140, modules/_nav.scss */
-aside .aside__link:hover {
-  background-color: #0a0d14;
+  display: inline-block;
+  vertical-align: middle;
 }
 /* line 143, modules/_nav.scss */
 aside .aside__link.active {
   color: #FFFFFF;
 }
 /* line 146, modules/_nav.scss */
+aside .aside__link{
+  color: #fff;
+}
+aside .aside__link:hover{
+  color: #00caca;
+}
 aside .aside__link i {
   font-size: 20px;
   margin-right: 10px;
@@ -11598,20 +11538,17 @@ aside .aside__link i {
 }
 /* line 150, modules/_nav.scss */
 aside .aside__link i.warn {
-  color: #d7a436;
-}
-/* line 155, modules/_nav.scss */
-aside .aside__link--absolute-bottom {
-  position: absolute;
-  top: auto;
-  right: auto;
-  bottom: 0;
-  left: 0;
-  background-color: transparent;
+  color: red;
 }
 /* line 167, modules/_nav.scss */
 aside ul li > ul {
   display: none;
+}
+
+aside ul li {
+  display: inline-block;
+  margin: 0 0 0 25px;
+  float: left;
 }
 /* line 169, modules/_nav.scss */
 aside ul li > ul li .aside__link {
@@ -12230,4 +12167,27 @@ aside ul li > ul li .aside__link:hover {
   display: inline-block;
   margin: 5px;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .15);
+}
+
+main{
+  margin-top: 50px;
+}
+
+.breadcrumb{
+  padding: 15px 30px;
+  background-color: #fff;
+}
+
+.breadcrumb > *{
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #888;
+  margin: 0 !important;
+  margin-right: 5px !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.breadcrumb a:hover{
+  color: #00caca !important;
 }

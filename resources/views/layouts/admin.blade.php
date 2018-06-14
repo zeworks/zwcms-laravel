@@ -8,38 +8,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
     <!-- Website theme color -->
-	<meta name="theme-color" content="#333">
+    <meta name="theme-color" content="#333">
 
     <!-- Website desc -->
     <title>Admin / {{ config('app.name') }}</title>
     <meta name="description" content="">
-	<meta name="keywords" content="">
+    <meta name="keywords" content="">
 
-	<!-- Facebook meta tags -->
-	<meta property="og:title" content="">
-	<meta property="og:description" content="">
-	<meta property="og:site_name" content="">
-	<meta property="og:url" content="">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="">
+    <!-- Facebook meta tags -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
 
-	<!-- Twitter meta tags -->
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@site_account">
-	<meta name="twitter:creator" content="@individual_account">
-	<meta name="twitter:url" content="http://example.com/page.html">
-	<meta name="twitter:title" content="Content Title">
-	<meta name="twitter:description" content="Content description less than 200 characters">
-	<meta name="twitter:image" content="http://example.com/image.jpg">
+    <!-- Twitter meta tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@site_account">
+    <meta name="twitter:creator" content="@individual_account">
+    <meta name="twitter:url" content="http://example.com/page.html">
+    <meta name="twitter:title" content="Content Title">
+    <meta name="twitter:description" content="Content description less than 200 characters">
+    <meta name="twitter:image" content="http://example.com/image.jpg">
 
-	<!-- Google Plus meta tags -->
-	<link href="https://plus.google.com/+YourPage" rel="publisher">
-	<meta itemprop="name" content="Content Title">
-	<meta itemprop="description" content="Content description less than 200 characters">
-	<meta itemprop="image" content="http://example.com/image.jpg">
+    <!-- Google Plus meta tags -->
+    <link href="https://plus.google.com/+YourPage" rel="publisher">
+    <meta itemprop="name" content="Content Title">
+    <meta itemprop="description" content="Content description less than 200 characters">
+    <meta itemprop="image" content="http://example.com/image.jpg">
 
-	<link rel="dns-prefetch" href="https://ssl.google-analytics.com/">
-	<link rel="dns-prefetch" href="//connect.facebook.net">
+    <link rel="dns-prefetch" href="https://ssl.google-analytics.com/">
+    <link rel="dns-prefetch" href="//connect.facebook.net">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -69,16 +69,88 @@
     <div id="app">
         <nav>
             <!-- zwcms logo -->
-            <img src="{{ asset('img/zwlogo.png') }}" width="30" height="30" class="rounded" alt="zwlogo.png">
+            <img src="{{ asset('img/zwlogo.png') }}" width="40" height="40" class="rounded" alt="zwlogo.png">
             <!-- end zwcms logo -->
             <a href="{{ url('/admin/home') }}">
                 <h1>{{ config('app.name') }}</h1>
             </a>
             <!-- end website name -->
             @auth
-            <a href class="menu active" title>
-                <i class="fa fa-bars"></i>
-            </a>
+            <aside class="clearfix">
+                <!-- aside items -->
+                <ul class="clearfix">
+                    <!-- dashboard -->
+                    <li class="{{ Request::is('admin/home*') ? 'active' : '' }}">
+                        <a href="{{ route('home') }}" class="aside__link" title="{{ __('Dashboard') }}">
+                            <i class="fa fa-tachometer-alt"></i>
+                        </a>
+                    </li>
+                    <!-- banners -->
+                    <li class="{{ Request::is('admin/banners*') ? 'active' : '' }}">
+                        <a href="{{ route('banners') }}" class="aside__link" title="{{ __('Banners Home') }}">
+                            <i class="fas fa-images"></i>
+                        </a>
+                    </li>
+                    <!-- templates -->
+                    <li class="{{ Request::is('admin/templates*') ? 'active' : '' }}">
+                        <a href="{{ route('templates') }}" class="aside__link" title="{{ __('Páginas') }}">
+                            <i class="far fa-file-alt"></i>
+                        </a>
+                    </li>
+                    <!-- blog -->
+                    <li class="{{ Request::is('admin/blog*') ? 'active' : '' }}">
+                        <a href="{{ route('blog') }}" class="aside__link" title="{{ __('Blog') }}">
+                            <i class="fab fa-blogger-b"></i>
+                        </a>
+                    </li>
+                    @if($websitesettings[0]->website_mode_store)
+                    <!-- costumers -->
+                    <li class="{{ Request::is('admin/costumers*') ? 'active' : '' }}">
+                        <a href="{{ route('costumers') }}" class="aside__link" title="{{ __('Clientes') }}">
+                            <i class="fas fa-users"></i>
+                        </a>
+                    </li>
+                    @endif
+                    <!-- products -->
+                    <li class="{{ Request::is('admin/products*') ? 'active' : '' }}">
+                        <a href="{{ route('products') }}" class="aside__link" title="{{ __('Produtos') }}">
+                            <i class="fas fa-dollar-sign"></i>
+                        </a>
+                    </li>
+                    @if($websitesettings[0]->website_mode_store)
+                    <!-- discounts -->
+                    <li class="{{ Request::is('admin/discounts*') ? 'active' : '' }}">
+                        <a href="{{ route('discounts') }}" class="aside__link" title="{{ __('Discontos') }}">
+                            <i class="fas fa-percent"></i>
+                        </a>
+                    </li>
+                    <!-- orders -->
+                    <li class="{{ Request::is('admin/orders*') ? 'active' : '' }}">
+                        <a href="{{ route('orders') }}" class="aside__link" title="{{ __('Encomendas') }}">
+                            <i class="fas fa-cubes"></i>
+                        </a>
+                    </li>
+                    <!-- shipping -->
+                    <li class="{{ Request::is('admin/shipping*') ? 'active' : '' }}">
+                        <a href="{{ route('shipping') }}" class="aside__link" title="{{ __('Envios') }}">
+                            <i class="fas fa-shipping-fast"></i>
+                        </a>
+                    </li>
+                    <!-- notifications -->
+                    @endif
+                    <li class="{{ Request::is('admin/notifications*') ? 'active' : '' }}">
+                        <a href="{{ route('notifications') }}" class="aside__link" title="{{ __('Notificações') }}">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </li>
+                    <!-- settings -->
+                    <li class="{{ Request::is('admin/settings*') ? 'active' : '' }}">
+                        <a href="{{ route('settings') }}" class="aside__link" title="{{ __('Definições') }}">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
             <div class="user-top-bar">
                 <div class="user-top-bar__info">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -101,98 +173,12 @@
             </div>
             @endif
         </nav>
-        @auth
-        <aside>
-            <!-- aside items -->
-            <ul>
-                <!-- dashboard -->
-                <li class="{{ Request::is('admin/home*') ? 'active' : '' }}">
-                    <a href="{{ route('home') }}" class="aside__link" title="{{ __('Dashboard') }}">
-                        <i class="fa fa-tachometer-alt"></i>
-                        {{ __('Dashboard') }}
-                    </a>
-                </li>
-                <!-- banners -->
-                <li class="{{ Request::is('admin/banners*') ? 'active' : '' }}">
-                    <a href="{{ route('banners') }}" class="aside__link" title="{{ __('Banners Home') }}">
-                        <i class="fas fa-images"></i>
-                        {{ __('Banners Home') }}
-                    </a>
-                </li>
-                <!-- templates -->
-                <li class="{{ Request::is('admin/templates*') ? 'active' : '' }}">
-                    <a href="{{ route('templates') }}" class="aside__link" title="{{ __('Páginas') }}">
-                        <i class="far fa-file-alt"></i>
-                        {{ __('Páginas') }}
-                    </a>
-                </li>
-                <!-- blog -->
-                <li class="{{ Request::is('admin/blog*') ? 'active' : '' }}">
-                    <a href="{{ route('blog') }}" class="aside__link" title="{{ __('Blog') }}">
-                        <i class="fab fa-blogger-b"></i>
-                        {{ __('Blog') }}
-                    </a>
-                </li>
-                @if($websitesettings[0]->website_mode_store)
-                <!-- costumers -->
-                <li class="{{ Request::is('admin/costumers*') ? 'active' : '' }}">
-                    <a href="{{ route('costumers') }}" class="aside__link" title="{{ __('Clientes') }}">
-                        <i class="fas fa-users"></i>
-                        {{ __('Clientes') }}
-                    </a>
-                </li>
-                @endif
-                <!-- products -->
-                <li class="{{ Request::is('admin/products*') ? 'active' : '' }}">
-                    <a href="{{ route('products') }}" class="aside__link" title="{{ __('Produtos') }}">
-                        <i class="fas fa-dollar-sign"></i>
-                        {{ __('Produtos') }}
-                    </a>
-                </li>
-                @if($websitesettings[0]->website_mode_store)
-                <!-- discounts -->
-                <li class="{{ Request::is('admin/discounts*') ? 'active' : '' }}">
-                    <a href="{{ route('discounts') }}" class="aside__link" title="{{ __('Discontos') }}">
-                        <i class="fas fa-percent"></i>
-                        {{ __('Discontos') }}
-                    </a>
-                </li>
-                <!-- orders -->
-                <li class="{{ Request::is('admin/orders*') ? 'active' : '' }}">
-                    <a href="{{ route('orders') }}" class="aside__link" title="{{ __('Encomendas') }}">
-                        <i class="fas fa-cubes"></i>
-                        {{ __('Encomendas') }}
-                    </a>
-                </li>
-                <!-- shipping -->
-                <li class="{{ Request::is('admin/shipping*') ? 'active' : '' }}">
-                    <a href="{{ route('shipping') }}" class="aside__link" title="{{ __('Envios') }}">
-                        <i class="fas fa-shipping-fast"></i>
-                        {{ __('Envios') }}
-                    </a>
-                </li>
-                <!-- notifications -->
-                @endif
-                <li class="{{ Request::is('admin/notifications*') ? 'active' : '' }}">
-                    <a href="{{ route('notifications') }}" class="aside__link" title="{{ __('Notificações') }}">
-                        <i class="fas fa-envelope"></i>
-                        {{ __('Notificações') }}
-                    </a>
-                </li>
-            </ul>
-            <!-- settings -->
-            <a title="Definições" href="{{ route('settings') }}" class="aside__link aside__link--absolute-bottom {{ Request::is('admin/settings*') ? 'active' : '' }}">
-                <i class="fas fa-cog"></i>{{ __('Definições') }}
-            </a>
-        </aside>
-        @endif
         <main>
             @if(session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session()->get('message') }}
-                </div>
-            @endif
-            @yield('content')
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+            @endif @yield('content')
         </main>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

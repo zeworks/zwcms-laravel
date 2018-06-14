@@ -27,8 +27,6 @@ function resizableElements(viewport) {
       }
     });
 
-    $("aside").css("padding-top", $("nav").outerHeight(true));
-
     $("aside ul li .aside__link").click(function () {
       $(this).children("i.rtl").toggleClass("active");
       $(this).toggleClass("active");
@@ -185,19 +183,6 @@ function toggleItems() {
     $(".form-toggle .item").removeClass("active");
     $("." + target).addClass("active");
   });
-
-  // main content collapse
-  $("nav .menu").click(function () {
-    $(this).toggleClass("active");
-
-    if ($(this).hasClass("active")) {
-      $("body").addClass("content-collapse");
-    } else {
-      $("body").removeClass("content-collapse");
-    }
-    return false;
-  });
-
 
 }
 

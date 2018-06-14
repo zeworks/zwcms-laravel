@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -48,6 +49,7 @@ class BlogController extends Controller
             $path = $request->file('upload_photo')->storeAs('public/images',$filename);
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item"),
                 "description" => $request -> input('editor_content'),
                 "featured_image" => $filename
@@ -56,6 +58,7 @@ class BlogController extends Controller
             // if there is not a file
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item"),
                 "description" => $request -> input('editor_content')     
             ];
@@ -93,6 +96,7 @@ class BlogController extends Controller
             $path = $request->file('upload_photo')->storeAs('public/images',$filename);
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item"),
                 "description" => $request -> input('editor_content'),
                 "featured_image" => $filename
@@ -101,6 +105,7 @@ class BlogController extends Controller
             // if there is not a file
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item"),
                 "description" => $request -> input('editor_content'),
             ];

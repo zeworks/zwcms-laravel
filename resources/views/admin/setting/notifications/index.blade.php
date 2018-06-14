@@ -28,32 +28,16 @@
                                 </p>
                                 <br>
                                 <table class="table-items__table">
-                                    <tr class="item-table">
-                                        <td>
-                                            <a href="{{ route('notification_edit') }}" title="Costumer account welcome">Costumer account welcome</a>
-                                        </td>
-                                        <td>
-                                            <small>Sent automatically to the customer when they complete their account activation.</small>
-                                        </td>
-                                    </tr>
-                                    <tr class="item-table">
-                                        <td>
-                                            <a href="{{ route('notification_edit') }}" title="Costumer account password reset">Costumer account password reset</a>
-                                        </td>
-                                        <td>
-                                            <small>Sent automatically to the customer when they ask to reset their accounts password.
-                                            </small>
-                                        </td>
-                                    </tr>
-                                    <tr class="item-table">
-                                        <td>
-                                            <a href="{{ route('notification_edit') }}" title="Contact Customer">Contact Customer</a>
-                                        </td>
-                                        <td>
-                                            <small>Sent to the customer when you contact them from the orders or customers page.
-                                                You can edit this email before you send it.</small>
-                                        </td>
-                                    </tr>
+                                    @foreach($notifications as $notification)
+                                        <tr class="item-table">
+                                            <td>
+                                                <a href="{{ route('notification_edit',['id' => $notification->id]) }}" title="{{$notification->title}}">{{$notification->title}}</a>
+                                            </td>
+                                            <td>
+                                                <small>{{$notification->observations}}</small>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </table>
                             </div>
                             <!-- end costumers -->

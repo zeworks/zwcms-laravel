@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\BlocksController;
 
@@ -51,6 +52,7 @@ class TemplateController extends Controller
             $path = $request->file('upload_photo')->storeAs('public/images',$filename);
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item"),
                 "featured_image" => $filename
             ];
@@ -58,6 +60,7 @@ class TemplateController extends Controller
             // if there is not a file
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item")     
             ];
         }
@@ -85,6 +88,7 @@ class TemplateController extends Controller
             $path = $request->file('upload_photo')->storeAs('public/images',$filename);
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item"),
                 "featured_image" => $filename
             ];
@@ -92,6 +96,7 @@ class TemplateController extends Controller
             // if there is not a file
             $data = [
                 "title" => $request -> input("title"),
+                "slug" => Str::slug($request->input('title')),
                 "status" => $request -> input("status_item")     
             ];
         }

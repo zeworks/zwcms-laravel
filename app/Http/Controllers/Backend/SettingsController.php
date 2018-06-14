@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\WebsiteSettings;
+use App\NotificationTemplates;
 use App\User;
 use Hash;
 
@@ -98,17 +99,48 @@ class SettingsController extends Controller
     // to costumize settings of notifications
     public function NotificationsSettings(){
         $websitesettings = WebsiteSettings::get();
-        return view('admin.setting.notifications.index', compact('websitesettings'));
+        $notifications = NotificationTemplates::get();
+        return view('admin.setting.notifications.index', compact('websitesettings','notifications'));
     }
 
     function newNotification(){
         $websitesettings = WebsiteSettings::get();
+
         return view('admin.setting.notifications.create', compact('websitesettings'));
     }
 
-    public function editNotification(){
+    // CREATE NOTIFICATION TEMPLATE
+    function createNotification(Request $request){
+
+        $data = [
+            "title" => $request -> input("title"),
+            "description" => $request -> input('desc_product'),
+            "observations" => $request -> input('observacoes_notification')
+        ];
+
+        $notificationCreated = NotificationTemplates::create($data);
+        return redirect()->back()->with("message","Criado com sucesso!");
+    }
+
+    function editNotification($id){
         $websitesettings = WebsiteSettings::get();
-        return view('admin.setting.notifications.edit', compact('websitesettings'));
+        
+        $notifications = NotificationTemplates::find($id);
+
+        return view('admin.setting.notifications.edit', compact('websitesettings','notifications'));
+    }
+
+    function updateNotification(Request $request,$id){
+        
+        $data = [
+            "title" => $request -> input("title"),
+            "description" => $request -> input('desc_product'),
+            "observations" => $request -> input('observacoes_notification')
+        ];
+
+        NotificationTemplates::where('id',$id)->update($data);
+
+        return redirect()->back()->with("message","Alterado com sucesso!");
     }
 
     

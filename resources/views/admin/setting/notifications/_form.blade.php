@@ -5,20 +5,19 @@
             <br>
             <small>Será mostrado no
                 <strong>subject / assunto</strong> do email recebido pelo destinatátio</small>
-            <input type="text" name="title" id="title" class="form-control" required>
+            <input type="text" name="title" id="title" class="form-control" required value="{{{ isset($notifications->title) ? $notifications->title : '' }}}">
         </div>
         <br>
         <div class="form-field">
             <span>Conteudo da Notificação</span>
             <br/>
             <br/>
-            <textarea name="desc_product" class="text-editor"></textarea>
+            <textarea name="desc_product" class="text-editor">{{ isset($notifications->description) ? $notifications->description : '' }}</textarea>
         </div>
         <br>
         <div class="form-field">
             <label for="observacoes_notification">{{ __('Observações de Notificação') }}</label>
-            <textarea name="observacoes_notification" rows="9" id="observacoes_notification" class="form-control"></textarea>
-                                    
+            <textarea name="observacoes_notification" rows="9" id="observacoes_notification" class="form-control">{{ isset($notifications->observations) ? $notifications->observations : '' }}</textarea>
         </div>
     </div>
 </div>

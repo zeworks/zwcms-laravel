@@ -19,8 +19,6 @@
                     <!-- user info -->
                     <div class="row">
                         <div class="col-lg-12">
-                            <br>
-                            <br>
                             <h3>{{$time_text}},
                                 <strong>{{ Auth::user()->name }}</strong>
                             </h3>
