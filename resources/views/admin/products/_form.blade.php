@@ -1,4 +1,4 @@
-<div class="col-lg-9 col-sm-6 col-xs-12">
+<div class="col-lg-9 col-sm-6">
     <div class="row">
         <div class="col-xs-12">
             <div class="table-items">
@@ -138,8 +138,7 @@
         </div>
     </div>
 </div>
-
-<div class="col-lg-3 col-sm-6 col-xs-12">
+<div class="col-lg-3 col-sm-6">
     <div class="row">
         <div class="col-xs-12">
             <div class="table-items">
@@ -187,7 +186,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <div class="buttons-top buttons-top-absolute">
     <div class="container-fluid">

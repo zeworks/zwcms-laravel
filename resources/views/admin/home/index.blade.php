@@ -114,16 +114,18 @@
                                             Date
                                         </th>
                                     </tr>
+                                    @foreach($subscribers as $subscriber)
                                     <tr class="item-table">
                                         <td>
                                             <p>
-                                                josenogueira@loba.pt
+                                                {{$subscriber->email}}
                                             </p>
                                         </td>
                                         <td>
-                                            27-01-2018
+                                            {{$subscriber->created_at}}
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>

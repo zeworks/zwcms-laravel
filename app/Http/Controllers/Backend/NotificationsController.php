@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\WebsiteSettings;
+use App\NotificationTemplates;
+use App\Subscribers;
 
 class NotificationsController extends Controller
 {
@@ -33,7 +35,9 @@ class NotificationsController extends Controller
 
     function newNotification(){
         $websitesettings = WebsiteSettings::get();
-        return view('admin.notifications.create', compact('websitesettings'));
+        $notifications = NotificationTemplates::get();
+        $subscribers = Subscribers::get();
+        return view('admin.notifications.create', compact('websitesettings','notifications','subscribers'));
     }
 
     public function editNotification(){

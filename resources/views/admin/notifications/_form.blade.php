@@ -4,10 +4,9 @@
             <label for="specific_subscribers">Selecionar Subscritores</label>
             <br>
             <select class="form-control multiple" name="specific_subscribers" id="specific_subscribers" multiple placeholder="Selecionar Subscritores">
-                <option value="s">s</option>
-                <option value="rr">rr</option>
-                <option value="aa">aa</option>
-                <option value="xx">xx</option>
+                @foreach($subscribers as $subscriber)
+                <option value="{{$subscriber->email}}">{{$subscriber->email}}</option>
+                @endforeach
             </select>
         </div>
         <br>
@@ -16,10 +15,9 @@
             <label for="template_notification">Qual a notificação a usar?</label>
             <br>
             <select class="form-control multiple" name="template_notification" id="template_notification">
-                <option value="s">s</option>
-                <option value="rr">rr</option>
-                <option value="aa">aa</option>
-                <option value="xx">xx</option>
+                @foreach($notifications as $notification)
+                <option value="{{$notification->title}}">{{$notification->title}}</option>
+                @endforeach
             </select>
         </div>
         <br><br>

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\WebsiteSettings;
+use App\Subscribers;
+
 
 class HomeController extends Controller
 {
@@ -30,8 +32,10 @@ class HomeController extends Controller
     {
         // to include website settings
         $websitesettings = WebsiteSettings::get();
+
+        $subscribers = Subscribers::get();
         // returns to the view with the website settings compacted
-        return view('admin.home.index', compact('websitesettings'));
+        return view('admin.home.index', compact('websitesettings','subscribers'));
     }
 
     

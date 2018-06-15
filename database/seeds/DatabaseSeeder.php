@@ -47,7 +47,7 @@ class WebsiteSettingsTableSeeder extends Seeder
             'website_name' => 'zwcms',
             'website_account_email' => 'zwcms@mail.com',
             'website_legal_name' => 'zwcms',
-            'website_desc' => 'zwcms'
+            'website_desc' => 'zwcms',
         ]);
     }
 }
