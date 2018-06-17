@@ -180,7 +180,7 @@
             @endif @yield('content')
         </main>
         <footer>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-4 col-sm-offset-8"><div class="fright">Developed by <a target="_blank" title="Developed by José Nogueira" href="http://www.josenogueira.com">josenogueira</a></div></div>
                 </div>
