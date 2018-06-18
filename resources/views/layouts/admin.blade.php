@@ -177,7 +177,8 @@
             <div class="alert alert-success">
                 {{ session()->get('message') }}
             </div>
-            @endif @yield('content')
+            @endif 
+            @yield('content')
         </main>
         <footer>
             <div class="container-fluid">

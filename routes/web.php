@@ -15,139 +15,142 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
+
 Auth::routes();
+
+
 // rotas com prefixo admin
 Route::prefix('admin')->group(function () {
-    Route::get('home', 'HomeController@index')->name('home');
-    Route::get('banners', 'BannersController@index')->name('banners');
-    Route::get('settings', 'SettingsController@index')->name('settings');
-    Route::get('templates', 'TemplateController@index')->name('templates');
-    Route::get('products', 'ProductsController@index')->name('products');
-    Route::get('blog', 'BlogController@index')->name('blog');
-    Route::get('discounts', 'DiscountsController@index')->name('discounts');
-    Route::get('costumers', 'CostumersController@index')->name('costumers');
-    Route::get('shipping', 'ShippingController@index')->name('shipping');
-    Route::get('orders', 'OrdersController@index')->name('orders');
-    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-    Route::get('notifications', 'NotificationsController@index')->name('notifications');
+    Route::get('logout', 'Backend\Auth\LoginController@logout')->name('logout');
+    Route::get('home', 'Backend\HomeController@index')->name('home');
+    Route::get('banners', 'Backend\BannersController@index')->name('banners');
+    Route::get('settings', 'Backend\SettingsController@index')->name('settings');
+    Route::get('templates', 'Backend\TemplateController@index')->name('templates');
+    Route::get('products', 'Backend\ProductsController@index')->name('products');
+    Route::get('blog', 'Backend\BlogController@index')->name('blog');
+    Route::get('discounts', 'Backend\DiscountsController@index')->name('discounts');
+    Route::get('costumers', 'Backend\CostumersController@index')->name('costumers');
+    Route::get('shipping', 'Backend\ShippingController@index')->name('shipping');
+    Route::get('orders', 'Backend\OrdersController@index')->name('orders');
+    Route::get('notifications', 'Backend\NotificationsController@index')->name('notifications');
     
     // rota com prefixo settings
     Route::prefix('settings')->group(function () {
-        Route::get('general', 'SettingsController@generalSettings')->name('general');
-        Route::get('account', 'SettingsController@accountSettings')->name('account');
-        Route::get('shipping', 'SettingsController@shippingSettings')->name('shipping_settings');
-        Route::get('notifications', 'SettingsController@NotificationsSettings')->name('notifications_settings');
+        Route::get('general', 'Backend\SettingsController@generalSettings')->name('general');
+        Route::get('account', 'Backend\SettingsController@accountSettings')->name('account');
+        Route::get('shipping', 'Backend\SettingsController@shippingSettings')->name('shipping_settings');
+        Route::get('notifications', 'Backend\SettingsController@NotificationsSettings')->name('notifications_settings');
 
 
         // para atualizar a informacao de definições gerais
-        Route::post('general', 'SettingsController@updateWebsite')->name('settings_general_edit');
+        Route::post('general', 'Backend\SettingsController@updateWebsite')->name('settings_general_edit');
         // para atualizar a informação do utilizador do BO;
-        Route::post('account', 'SettingsController@updateAccountSettings')->name('settings_account_edit');
+        Route::post('account', 'Backend\SettingsController@updateAccountSettings')->name('settings_account_edit');
     });
 
     // rota com prefixo banners
     Route::prefix('banners')->group(function () {
-        Route::get('new', 'BannersController@newBanner')->name('banner_new');
-        Route::get('edit/{id}', 'BannersController@editBanner')->name('banner_edit');
+        Route::get('new', 'Backend\BannersController@newBanner')->name('banner_new');
+        Route::get('edit/{id}', 'Backend\BannersController@editBanner')->name('banner_edit');
 
         // para criar novo banner
-        Route::post('new', 'BannersController@insertNewBanner')->name('banner_insert');
+        Route::post('new', 'Backend\BannersController@insertNewBanner')->name('banner_insert');
         // para editar o banner
-        Route::post('edit/{id}', 'BannersController@updateBanner')->name('banner_update');
+        Route::post('edit/{id}', 'Backend\BannersController@updateBanner')->name('banner_update');
         // para eliminar o banner
-        Route::post('del/{id}', 'BannersController@deleteBanner')->name('banner_delete');
+        Route::post('del/{id}', 'Backend\BannersController@deleteBanner')->name('banner_delete');
     });
 
     // rota com prefixo templates
     Route::prefix('templates')->group(function () {
-        Route::get('new', 'TemplateController@newTemplate')->name('template_new');
-        Route::get('edit/{id}', 'TemplateController@editTemplate')->name('template_edit');
+        Route::get('new', 'Backend\TemplateController@newTemplate')->name('template_new');
+        Route::get('edit/{id}', 'Backend\TemplateController@editTemplate')->name('template_edit');
         
         // para criar novo template
-        Route::post('new', 'TemplateController@insertNewTemplate')->name('template_insert');
+        Route::post('new', 'Backend\TemplateController@insertNewTemplate')->name('template_insert');
         // para editar o template
-        Route::post('edit/{id}', 'TemplateController@updateTemplate')->name('template_update');
+        Route::post('edit/{id}', 'Backend\TemplateController@updateTemplate')->name('template_update');
         // para eliminar o template
-        Route::post('del/{id}', 'TemplateController@deleteTemplate')->name('template_delete');
+        Route::post('del/{id}', 'Backend\TemplateController@deleteTemplate')->name('template_delete');
         
     });
 
     // rota com prefixo products
     Route::prefix('products')->group(function () {
-        Route::get('new', 'ProductsController@newProduct')->name('product_new');
-        Route::get('edit/{id}', 'ProductsController@editProduct')->name('product_edit');
+        Route::get('new', 'Backend\ProductsController@newProduct')->name('product_new');
+        Route::get('edit/{id}', 'Backend\ProductsController@editProduct')->name('product_edit');
 
         // para criar novo product
-        Route::post('new', 'ProductsController@insertNewProduct')->name('product_insert');
+        Route::post('new', 'Backend\ProductsController@insertNewProduct')->name('product_insert');
         // para editar o product
-        Route::post('edit/{id}', 'ProductsController@updateProduct')->name('product_update');
+        Route::post('edit/{id}', 'Backend\ProductsController@updateProduct')->name('product_update');
         // para eliminar o product
-        Route::post('del/{id}', 'ProductsController@deleteProduct')->name('product_delete');
+        Route::post('del/{id}', 'Backend\ProductsController@deleteProduct')->name('product_delete');
         
     });
 
     // rota com prefixo settings/notifications
     Route::prefix('settings/notifications')->group(function () {
-        Route::get('new', 'SettingsController@newNotification')->name('notification_new');
-        Route::get('edit/{id}', 'SettingsController@editNotification')->name('notification_edit');
+        Route::get('new', 'Backend\SettingsController@newNotification')->name('notification_new');
+        Route::get('edit/{id}', 'Backend\SettingsController@editNotification')->name('notification_edit');
 
         // para criar um template de notificação
-        Route::post('new', 'SettingsController@createNotification')->name('notification_create');
+        Route::post('new', 'Backend\SettingsController@createNotification')->name('notification_create');
         // para editar um template de notificação
-        Route::post('edit/{id}', 'SettingsController@updateNotification')->name('notification_update');
+        Route::post('edit/{id}', 'Backend\SettingsController@updateNotification')->name('notification_update');
         
     });
 
     Route::prefix('notifications')->group(function () {
-        Route::get('new', 'NotificationsController@newNotification')->name('notification_send');
+        Route::get('new', 'Backend\NotificationsController@newNotification')->name('notification_send');
     });
 
     
 
     // rota com prefixo blog
     Route::prefix('blog')->group(function () {
-        Route::get('new', 'BlogController@newBlog')->name('blog_new');
-        Route::get('edit/{id}', 'BlogController@editBlog')->name('blog_edit');
+        Route::get('new', 'Backend\BlogController@newBlog')->name('blog_new');
+        Route::get('edit/{id}', 'Backend\BlogController@editBlog')->name('blog_edit');
 
         
         // para criar novo post
-        Route::post('new', 'BlogController@insertNewBlog')->name('blog_insert');
+        Route::post('new', 'Backend\BlogController@insertNewBlog')->name('blog_insert');
         // para editar o post
-        Route::post('edit/{id}', 'BlogController@updateBlog')->name('blog_update');
+        Route::post('edit/{id}', 'Backend\BlogController@updateBlog')->name('blog_update');
         // para eliminar o post
-        Route::post('del/{id}', 'BlogController@deleteBlog')->name('blog_delete');
+        Route::post('del/{id}', 'Backend\BlogController@deleteBlog')->name('blog_delete');
     });
 
     // rota com prefixo costumers
     Route::prefix('costumers')->group(function () {
-        Route::get('new', 'CostumersController@newCostumer')->name('costumer_new');
-        Route::get('edit', 'CostumersController@editCostumer')->name('costumer_edit');
+        Route::get('new', 'Backend\CostumersController@newCostumer')->name('costumer_new');
+        Route::get('edit', 'Backend\CostumersController@editCostumer')->name('costumer_edit');
     });
 
     // rota com prefixo orders
     Route::prefix('orders')->group(function () {
-        Route::get('new', 'OrdersController@newOrder')->name('order_new');
-        Route::get('edit', 'OrdersController@editOrder')->name('order_edit');
+        Route::get('new', 'Backend\OrdersController@newOrder')->name('order_new');
+        Route::get('edit', 'Backend\OrdersController@editOrder')->name('order_edit');
     });
 
     // rota com prefixo discounts
     Route::prefix('discounts')->group(function () {
-        Route::get('new', 'DiscountsController@newDiscount')->name('discount_new');
-        Route::get('edit', 'DiscountsController@editDiscount')->name('discount_edit');
+        Route::get('new', 'Backend\DiscountsController@newDiscount')->name('discount_new');
+        Route::get('edit', 'Backend\DiscountsController@editDiscount')->name('discount_edit');
     });
 
     
 
     // rota com prefixo shipping
     Route::prefix('shipping')->group(function () {
-        Route::get('new', 'ShippingController@newShipping')->name('shipping_new');
-        Route::get('edit', 'ShippingController@editShipping')->name('shipping_edit');
+        Route::get('new', 'Backend\ShippingController@newShipping')->name('shipping_new');
+        Route::get('edit', 'Backend\ShippingController@editShipping')->name('shipping_edit');
     });
 
     Route::prefix('ajax')->group(function () {
-        Route::post('upload_images', 'AjaxController@UploadImages')->name('upload_images');
+        Route::post('upload_images', 'Backend\AjaxController@UploadImages')->name('upload_images');
     });
 
 });
 
-
+Route::get('/', 'Frontend\HomeController@index')->name('home');
