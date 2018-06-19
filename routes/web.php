@@ -21,7 +21,6 @@ Auth::routes();
 
 // rotas com prefixo admin
 Route::prefix('admin')->group(function () {
-    Route::get('logout', 'Backend\Auth\LoginController@logout')->name('logout');
     Route::get('home', 'Backend\HomeController@index')->name('home');
     Route::get('banners', 'Backend\BannersController@index')->name('banners');
     Route::get('settings', 'Backend\SettingsController@index')->name('settings');
