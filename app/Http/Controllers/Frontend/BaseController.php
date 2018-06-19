@@ -6,11 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Templates;
 
-class HomeController extends Controller
+class BaseController extends Controller
 {
-    function index(){
 
-
-        return view('front.homepage');
-    }   
+  
 }

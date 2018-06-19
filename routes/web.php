@@ -1,5 +1,6 @@
 <?php
-
+use App\Templates;
+use App\WebsiteSettings;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -152,4 +153,18 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Route::get('/', 'Frontend\HomeController@index')->name('home');
+Route::get('/', 'Frontend\HomeController@index');
+
+// VIEW COMPOSERS
+
+// templates
+// View::composer(['*'], function($view){
+//     $url = Templates::get()->where("status",'on');
+//     $view->with("url",$url);
+// });
+
+// settings
+// View::composer(['*'], function($view){
+//     $settings = WebsiteSettings::get();
+//     $view->with("settings",$settings);
+// });
