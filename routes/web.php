@@ -158,13 +158,13 @@ Route::get('/', 'Frontend\HomeController@index');
 // VIEW COMPOSERS
 
 // templates
-// View::composer(['*'], function($view){
-//     $url = Templates::get()->where("status",'on');
-//     $view->with("url",$url);
-// });
+View::composer(['*'], function($view){
+    $url = Templates::get()->where("status",'on');
+    $view->with("url",$url);
+});
 
 // settings
-// View::composer(['*'], function($view){
-//     $settings = WebsiteSettings::get();
-//     $view->with("settings",$settings);
-// });
+View::composer(['*'], function($view){
+    $settings = WebsiteSettings::get();
+    $view->with("settings",$settings);
+});
